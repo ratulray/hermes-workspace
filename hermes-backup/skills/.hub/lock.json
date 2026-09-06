@@ -1,0 +1,544 @@
+{
+  "version": 1,
+  "installed": {
+    "last30days-skill": {
+      "source": "clawhub",
+      "identifier": "last30days-skill",
+      "trust_level": "community",
+      "scan_verdict": "dangerous",
+      "content_hash": "sha256:78a4f9f35935a5fb",
+      "install_path": "last30days-skill",
+      "files": [
+        "agents/openai.yaml",
+        "CHANGELOG.md",
+        "docs/plans/2026-02-03-bird-cli-implementation.md",
+        "docs/plans/2026-02-03-bird-cli-integration-design.md",
+        "docs/plans/2026-02-06-feat-last30days-bird-cli-release-plan.md",
+        "docs/plans/2026-02-06-feat-visible-query-parsing-display-plan.md",
+        "docs/plans/2026-02-06-fix-last30days-v2-formatting-reddit-citations-plan.md",
+        "docs/plans/2026-02-06-fix-skill-execution-fork-mode-plan.md",
+        "docs/plans/2026-02-06-test-v1-vs-v2-comparison-plan.md",
+        "docs/plans/2026-02-07-feat-bundle-bird-x-search-plan.md",
+        "docs/plans/2026-02-07-feat-smart-supplemental-search-plan.md",
+        "docs/plans/2026-02-07-fix-x-search-query-construction-plan.md",
+        "docs/plans/2026-02-14-feat-codex-skill-compatibility-plan.md",
+        "docs/plans/2026-02-14-feat-merge-openclaw-variant-plan.md",
+        "docs/plans/2026-02-14-feat-youtube-transcript-search-plan.md",
+        "docs/pr-credits.md",
+        "docs/v2.1-launch-copy.md",
+        "docs/v2.1-tweets.md",
+        "fixtures/models_openai_sample.json",
+        "fixtures/models_xai_sample.json",
+        "fixtures/openai_sample.json",
+        "fixtures/reddit_thread_sample.json",
+        "fixtures/xai_sample.json",
+        "plans/feat-add-websearch-source.md",
+        "plans/fix-strict-date-filtering.md",
+        "README.md",
+        "release-notes.md",
+        "scripts/briefing.py",
+        "scripts/last30days.py",
+        "scripts/lib/__init__.py",
+        "scripts/lib/bird_x.py",
+        "scripts/lib/brave_search.py",
+        "scripts/lib/cache.py",
+        "scripts/lib/dates.py",
+        "scripts/lib/dedupe.py",
+        "scripts/lib/entity_extract.py",
+        "scripts/lib/env.py",
+        "scripts/lib/http.py",
+        "scripts/lib/models.py",
+        "scripts/lib/normalize.py",
+        "scripts/lib/openai_reddit.py",
+        "scripts/lib/openrouter_search.py",
+        "scripts/lib/parallel_search.py",
+        "scripts/lib/reddit_enrich.py",
+        "scripts/lib/render.py",
+        "scripts/lib/schema.py",
+        "scripts/lib/score.py",
+        "scripts/lib/ui.py",
+        "scripts/lib/vendor/bird-search/bird-search.mjs",
+        "scripts/lib/vendor/bird-search/lib/cookies.js",
+        "scripts/lib/vendor/bird-search/lib/features.json",
+        "scripts/lib/vendor/bird-search/lib/paginate-cursor.js",
+        "scripts/lib/vendor/bird-search/lib/query-ids.json",
+        "scripts/lib/vendor/bird-search/lib/runtime-features.js",
+        "scripts/lib/vendor/bird-search/lib/runtime-query-ids.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-base.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-constants.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-features.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-search.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-types.js",
+        "scripts/lib/vendor/bird-search/lib/twitter-client-utils.js",
+        "scripts/lib/vendor/bird-search/package.json",
+        "scripts/lib/websearch.py",
+        "scripts/lib/xai_x.py",
+        "scripts/lib/youtube_yt.py",
+        "scripts/store.py",
+        "scripts/sync.sh",
+        "scripts/watchlist.py",
+        "SKILL-original.md",
+        "SKILL.md",
+        "SPEC.md",
+        "TASKS.md",
+        "tests/__init__.py",
+        "tests/test_cache.py",
+        "tests/test_dates.py",
+        "tests/test_dedupe.py",
+        "tests/test_models.py",
+        "tests/test_normalize.py",
+        "tests/test_openai_reddit.py",
+        "tests/test_render.py",
+        "tests/test_score.py",
+        "variants/open/context.md",
+        "variants/open/references/briefing.md",
+        "variants/open/references/history.md",
+        "variants/open/references/research.md",
+        "variants/open/references/watchlist.md",
+        "variants/open/SKILL.md",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "installed_at": "2026-05-25T17:42:21.907007+00:00",
+      "updated_at": "2026-05-25T17:42:21.907010+00:00"
+    },
+    "obsidian-markdown": {
+      "source": "url",
+      "identifier": "https://raw.githubusercontent.com/kepano/obsidian-skills/main/skills/obsidian-markdown/SKILL.md",
+      "trust_level": "community",
+      "scan_verdict": "safe",
+      "content_hash": "sha256:7ad72e1f0a9081ed",
+      "install_path": "obsidian-markdown",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "url": "https://raw.githubusercontent.com/kepano/obsidian-skills/main/skills/obsidian-markdown/SKILL.md",
+        "awaiting_name": false
+      },
+      "installed_at": "2026-05-22T17:25:45.587807+00:00",
+      "updated_at": "2026-05-22T17:25:45.587816+00:00"
+    },
+    "last30days": {
+      "source": "clawhub",
+      "identifier": "last30days",
+      "trust_level": "community",
+      "scan_verdict": "dangerous",
+      "content_hash": "sha256:bc0304367b6b8282",
+      "install_path": "last30days",
+      "files": [
+        "scripts/last30days.py",
+        "scripts/lib/__init__.py",
+        "scripts/lib/cache.py",
+        "scripts/lib/dates.py",
+        "scripts/lib/dedupe.py",
+        "scripts/lib/env.py",
+        "scripts/lib/http.py",
+        "scripts/lib/models.py",
+        "scripts/lib/normalize.py",
+        "scripts/lib/openai_reddit.py",
+        "scripts/lib/reddit_enrich.py",
+        "scripts/lib/render.py",
+        "scripts/lib/schema.py",
+        "scripts/lib/score.py",
+        "scripts/lib/ui.py",
+        "scripts/lib/websearch.py",
+        "scripts/lib/xai_x.py",
+        "SKILL.md",
+        "_meta.json"
+      ],
+      "metadata": {},
+      "installed_at": "2026-05-25T17:45:51.626959+00:00",
+      "updated_at": "2026-05-25T17:45:51.626961+00:00"
+    },
+    "baoyu-article-illustrator": {
+      "source": "official",
+      "identifier": "official/creative/baoyu-article-illustrator",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:15694c74d4ec835e",
+      "install_path": "creative/baoyu-article-illustrator",
+      "files": [
+        "PORT_NOTES.md",
+        "SKILL.md",
+        "prompts/system.md",
+        "references/palettes/macaron.md",
+        "references/palettes/mono-ink.md",
+        "references/palettes/neon.md",
+        "references/palettes/warm.md",
+        "references/prompt-construction.md",
+        "references/style-presets.md",
+        "references/styles/blueprint.md",
+        "references/styles/chalkboard.md",
+        "references/styles/editorial.md",
+        "references/styles/elegant.md",
+        "references/styles/fantasy-animation.md",
+        "references/styles/flat-doodle.md",
+        "references/styles/flat.md",
+        "references/styles/ink-notes.md",
+        "references/styles/intuition-machine.md",
+        "references/styles/minimal.md",
+        "references/styles/nature.md",
+        "references/styles/notion.md",
+        "references/styles/pixel-art.md",
+        "references/styles/playful.md",
+        "references/styles/retro.md",
+        "references/styles/scientific.md",
+        "references/styles/screen-print.md",
+        "references/styles/sketch-notes.md",
+        "references/styles/sketch.md",
+        "references/styles/vector-illustration.md",
+        "references/styles/vintage.md",
+        "references/styles/warm.md",
+        "references/styles/watercolor.md",
+        "references/styles.md",
+        "references/usage.md",
+        "references/workflow.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-08-21T04:19:27.946040+00:00",
+      "updated_at": "2026-08-21T04:19:27.946040+00:00"
+    },
+    "baoyu-comic": {
+      "source": "official",
+      "identifier": "official/creative/baoyu-comic",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:4378c8ba82fd3649",
+      "install_path": "creative/baoyu-comic",
+      "files": [
+        "PORT_NOTES.md",
+        "SKILL.md",
+        "references/analysis-framework.md",
+        "references/art-styles/chalk.md",
+        "references/art-styles/ink-brush.md",
+        "references/art-styles/ligne-claire.md",
+        "references/art-styles/manga.md",
+        "references/art-styles/minimalist.md",
+        "references/art-styles/realistic.md",
+        "references/auto-selection.md",
+        "references/base-prompt.md",
+        "references/character-template.md",
+        "references/layouts/cinematic.md",
+        "references/layouts/dense.md",
+        "references/layouts/four-panel.md",
+        "references/layouts/mixed.md",
+        "references/layouts/splash.md",
+        "references/layouts/standard.md",
+        "references/layouts/webtoon.md",
+        "references/ohmsha-guide.md",
+        "references/partial-workflows.md",
+        "references/presets/concept-story.md",
+        "references/presets/four-panel.md",
+        "references/presets/ohmsha.md",
+        "references/presets/shoujo.md",
+        "references/presets/wuxia.md",
+        "references/storyboard-template.md",
+        "references/tones/action.md",
+        "references/tones/dramatic.md",
+        "references/tones/energetic.md",
+        "references/tones/neutral.md",
+        "references/tones/romantic.md",
+        "references/tones/vintage.md",
+        "references/tones/warm.md",
+        "references/workflow.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-08-21T04:19:27.973110+00:00",
+      "updated_at": "2026-08-21T04:19:27.973110+00:00"
+    },
+    "dspy": {
+      "source": "official",
+      "identifier": "official/mlops/research/dspy",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:bbbe1148d27953a8",
+      "install_path": "mlops/research/dspy",
+      "files": [
+        "SKILL.md",
+        "references/examples.md",
+        "references/modules.md",
+        "references/optimizers.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-08-21T04:19:27.988562+00:00",
+      "updated_at": "2026-08-21T04:19:27.988562+00:00"
+    },
+    "ascii-art": {
+      "source": "official",
+      "identifier": "official/creative/ascii-art",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:29e23c2fdb90e5ab",
+      "install_path": "creative/ascii-art",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.120851+00:00",
+      "updated_at": "2026-09-03T05:31:33.120851+00:00"
+    },
+    "comfyui": {
+      "source": "official",
+      "identifier": "official/creative/comfyui",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:612d22cb79d98990",
+      "install_path": "creative/comfyui",
+      "files": [
+        "SKILL.md",
+        "references/official-cli.md",
+        "references/rest-api.md",
+        "references/template-integrity.md",
+        "references/workflow-format.md",
+        "scripts/_common.py",
+        "scripts/auto_fix_deps.py",
+        "scripts/check_deps.py",
+        "scripts/comfyui_setup.sh",
+        "scripts/extract_schema.py",
+        "scripts/fetch_logs.py",
+        "scripts/hardware_check.py",
+        "scripts/health_check.py",
+        "scripts/run_batch.py",
+        "scripts/run_workflow.py",
+        "scripts/ws_monitor.py",
+        "tests/README.md",
+        "tests/conftest.py",
+        "tests/pytest.ini",
+        "tests/test_check_deps.py",
+        "tests/test_cloud_integration.py",
+        "tests/test_common.py",
+        "tests/test_extract_schema.py",
+        "tests/test_run_workflow.py",
+        "workflows/README.md",
+        "workflows/animatediff_video.json",
+        "workflows/flux_dev_txt2img.json",
+        "workflows/sd15_txt2img.json",
+        "workflows/sdxl_img2img.json",
+        "workflows/sdxl_inpaint.json",
+        "workflows/sdxl_txt2img.json",
+        "workflows/upscale_4x.json",
+        "workflows/wan_video_t2v.json"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.135508+00:00",
+      "updated_at": "2026-09-03T05:31:33.135508+00:00"
+    },
+    "excalidraw": {
+      "source": "official",
+      "identifier": "official/creative/excalidraw",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:359112274e8262e0",
+      "install_path": "creative/excalidraw",
+      "files": [
+        "SKILL.md",
+        "references/colors.md",
+        "references/dark-mode.md",
+        "references/examples.md",
+        "scripts/upload.py"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.144665+00:00",
+      "updated_at": "2026-09-03T05:31:33.144665+00:00"
+    },
+    "pretext": {
+      "source": "official",
+      "identifier": "official/creative/pretext",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:9e2e8f6151b4be1b",
+      "install_path": "creative/pretext",
+      "files": [
+        "SKILL.md",
+        "references/patterns.md",
+        "templates/donut-orbit.html",
+        "templates/hello-orb-flow.html"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.148779+00:00",
+      "updated_at": "2026-09-03T05:31:33.148779+00:00"
+    },
+    "sketch": {
+      "source": "official",
+      "identifier": "official/creative/sketch",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:bea886ff483216bf",
+      "install_path": "creative/sketch",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.149495+00:00",
+      "updated_at": "2026-09-03T05:31:33.149495+00:00"
+    },
+    "touchdesigner-mcp": {
+      "source": "official",
+      "identifier": "official/creative/touchdesigner-mcp",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:0c6b0a3ffb64b73c",
+      "install_path": "creative/touchdesigner-mcp",
+      "files": [
+        "SKILL.md",
+        "references/3d-scene.md",
+        "references/animation.md",
+        "references/audio-reactive.md",
+        "references/dat-scripting.md",
+        "references/external-data.md",
+        "references/geometry-comp.md",
+        "references/glsl.md",
+        "references/layout-compositor.md",
+        "references/mcp-tools.md",
+        "references/midi-osc.md",
+        "references/network-patterns.md",
+        "references/operator-tips.md",
+        "references/operators.md",
+        "references/panel-ui.md",
+        "references/particles.md",
+        "references/pitfalls.md",
+        "references/postfx.md",
+        "references/projection-mapping.md",
+        "references/python-api.md",
+        "references/replicator.md",
+        "references/troubleshooting.md",
+        "scripts/setup.sh"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.157611+00:00",
+      "updated_at": "2026-09-03T05:31:33.157611+00:00"
+    },
+    "evaluating-llms-harness": {
+      "source": "official",
+      "identifier": "official/mlops/evaluation/evaluating-llms-harness",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:b518f45966286421",
+      "install_path": "mlops/evaluation/evaluating-llms-harness",
+      "files": [
+        "SKILL.md",
+        "references/api-evaluation.md",
+        "references/benchmark-guide.md",
+        "references/custom-tasks.md",
+        "references/distributed-eval.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.162878+00:00",
+      "updated_at": "2026-09-03T05:31:33.162878+00:00"
+    },
+    "weights-and-biases": {
+      "source": "official",
+      "identifier": "official/mlops/evaluation/weights-and-biases",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:4286e3db3985d52f",
+      "install_path": "mlops/evaluation/weights-and-biases",
+      "files": [
+        "SKILL.md",
+        "references/artifacts.md",
+        "references/integrations.md",
+        "references/sweeps.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.165017+00:00",
+      "updated_at": "2026-09-03T05:31:33.165017+00:00"
+    },
+    "llama-cpp": {
+      "source": "official",
+      "identifier": "official/mlops/inference/llama-cpp",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:43a4ec8fb07acce8",
+      "install_path": "mlops/inference/llama-cpp",
+      "files": [
+        "SKILL.md",
+        "references/advanced-usage.md",
+        "references/hub-discovery.md",
+        "references/optimization.md",
+        "references/quantization.md",
+        "references/server.md",
+        "references/troubleshooting.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.166880+00:00",
+      "updated_at": "2026-09-03T05:31:33.166880+00:00"
+    },
+    "serving-llms-vllm": {
+      "source": "official",
+      "identifier": "official/mlops/inference/serving-llms-vllm",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:688c281ab63bb0ea",
+      "install_path": "mlops/inference/serving-llms-vllm",
+      "files": [
+        "SKILL.md",
+        "references/optimization.md",
+        "references/quantization.md",
+        "references/server-deployment.md",
+        "references/troubleshooting.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.171102+00:00",
+      "updated_at": "2026-09-03T05:31:33.171102+00:00"
+    },
+    "huggingface-hub": {
+      "source": "official",
+      "identifier": "official/mlops/huggingface-hub",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:55fa8eb6c3b4be8c",
+      "install_path": "mlops/huggingface-hub",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.171612+00:00",
+      "updated_at": "2026-09-03T05:31:33.171612+00:00"
+    },
+    "openhue": {
+      "source": "official",
+      "identifier": "official/smart-home/openhue",
+      "trust_level": "builtin",
+      "scan_verdict": "backfilled",
+      "content_hash": "sha256:177f4de2ef06e4d9",
+      "install_path": "smart-home/openhue",
+      "files": [
+        "SKILL.md"
+      ],
+      "metadata": {
+        "backfilled_from": "optional-skills"
+      },
+      "installed_at": "2026-09-03T05:31:33.210753+00:00",
+      "updated_at": "2026-09-03T05:31:33.210753+00:00"
+    }
+  }
+}

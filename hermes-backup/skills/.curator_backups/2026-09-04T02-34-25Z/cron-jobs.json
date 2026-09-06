@@ -1,0 +1,166 @@
+{
+  "jobs": [
+    {
+      "id": "70bb168c25de",
+      "name": "KB Newsletter Monitor",
+      "prompt": "You monitor an AI knowledge base for new newsletter entries and surface relevant ones to Ratul for roadmap input.\n\n## Knowledge base location\nPath: /Users/ratul/Documents/agent-roadmap/newsletters/\n\n## Your job\n1. List the newsletter files sorted by modification time (newest first).\n2. Skip any files you've already processed (track last-seen in a simple text file at /Users/ratul/Documents/agent-roadmap/kb-monitor/last-seen.txt \u2014 create the directory if needed).\n3. For each NEW file since last run:\n   a. Read the file fully.\n   b. Assess whether its topics are relevant to Ratul's team (enterprise multi-agent conversational AI, focus on: agent orchestration patterns, quality/consistency, observability, complex workflows, HITL, agent evaluation, dev experience). Use your judgment \u2014 relevance isn't binary, surface anything with a plausible connection.\n   c. If relevant: send a Telegram message to Ratul summarizing the topic and asking if he wants a deeper dive. Format:\n\n   ---\n   [KB Signal] New entry: {filename}\n\n   Topic: {2-3 sentence summary of what it covers}\n\n   Relevance to your team: {why this matters for enterprise multi-agent work}\n\n   Want me to go deeper? (yes/no)\n   ---\n\n   Use send_message(action='list') first to find the correct Telegram target.\n\n4. If Ratul says YES:\n   - Load the last30days skill: skill_view(name='last30days')\n   - Use the skill to research the topic online (get diverse perspectives from last 30 days)\n   - Create a deep-dive file at /Users/ratul/Documents/agent-roadmap/kb-deep-dives/{date}-{slug}.md with:\n     - Summary of what the research found\n     - 3-5 concrete roadmap ideas with brief implementation considerations\n     - Links to key resources\n   - Send Ratul a Telegram message: 'Done \u2014 created deep dive at {filepath}. Review it and adjust the roadmap as needed.'\n\n5. If Ratul says NO: do nothing further for that entry.\n\n## Important\n- Only process new files since last run. Don't re-process old ones.\n- Be selective but not overly narrow \u2014 surface anything that could inform the agent orchestration strategy.\n- Keep Telegram messages concise \u2014 this is a signal, not a full report.\n- Store the last-seen marker AFTER processing, so failures do not skip files.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "display": "0 9 * * 1"
+      },
+      "schedule_display": "0 9 * * 1",
+      "repeat": {
+        "times": 1440,
+        "completed": 28
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-21T23:15:01.908653-07:00",
+      "next_run_at": "2026-09-07T09:00:00-07:00",
+      "last_run_at": "2026-08-31T09:01:21.832350-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/Users/ratul/Documents/agent-roadmap"
+    },
+    {
+      "id": "54c9ff20ac59",
+      "name": "Leadership Coach \u2014 Weekly Friday Session",
+      "prompt": "You are Ratul Ray's leadership coach. Every Friday, you run a coaching session with him.\n\nWORKFLOW:\n\n1. SCAN the tips folder: /Users/ratul/Documents/leadership_notes/tips/winning-with-people/\n   - Pick exactly 2 tips that are different from what was covered recently\n   - Check /tmp/leadership-coaching-last-topics.txt to avoid repeating same tips\n   - Read both tip files but do NOT reveal the tip content or Maxwell's quotes to Ratul\n\n2. RESEARCH: Run web searches to gather current perspectives, expert takes, and frameworks on the two topics. Focus on: what great leaders do, common failure modes, practical advice. Use last30days or web search.\n\n3. DELIVER via send_message to telegram:\n\nSend ONE question at a time. Wait for his answer before sending the next. Do not reveal the tips or source material.\n\nAfter all questions are answered, send a comprehensive feedback report that:\n- Judges each answer against what great leadership looks like\n- Is brutally honest \u2014 name patterns, blind spots, specific risks\n- Identifies the through-line across all answers\n- Ends with ONE concrete action for the coming week\n\n4. After Ratul has answered all questions and you have sent the final feedback report, save a session summary to /Users/ratul/Documents/leadership_conversation/{YYYY-MM-DD}.md that includes: the two tips used, each question asked, Ratul's actual answers, and your feedback/assessment. Do not create this file before the session is complete.\n\nAlso update /tmp/leadership-coaching-last-topics.txt with the two tip IDs used.\n\nTONE: Warm but direct. Questions should feel like a thoughtful mentor who knows Ratul's context (Sr EM, Agentic AI at ServiceNow, formerly Meta). No generic questions \u2014 make them specific to tech/engineering leadership.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 5",
+        "display": "0 21 * * 5"
+      },
+      "schedule_display": "0 21 * * 5",
+      "repeat": {
+        "times": 1440,
+        "completed": 20
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-21T23:27:33.347508-07:00",
+      "next_run_at": "2026-09-04T21:00:00-07:00",
+      "last_run_at": "2026-08-28T21:02:28.010223-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal",
+        "file",
+        "web",
+        "skills"
+      ],
+      "workdir": "/Users/ratul"
+    },
+    {
+      "id": "bf4a670129fc",
+      "name": "Moveworks weekly job search",
+      "prompt": "You are running the jobsearch skill for Moveworks on a weekly schedule. Your goal is to produce a fresh shortlist report and deliver it to Ratul via Telegram.\n\n## Step 1: Load the jobsearch skill\nUse skill_view(name=\"jobsearch\") to load the full skill context before doing anything else. Read all linked reference files: output-format.md, scoring-rubric.md, ats-custom-web-component.md, and PREFERENCES.md (from ~/Documents/jobsearch/PREFERENCES.md) and RESUME_SUMMARY.md (from ~/Documents/jobsearch/RESUME_SUMMARY.md). These are autoritative for hard filters, scoring, and output format.\n\n## Step 2: Collect Moveworks job listings\nMoveworks uses a custom web component job board at https://www.moveworks.com/us/en/company/careers\n\nThe filter mechanism is a `<select class=\"cmp-job-listings__filter__departments\">` HTML element \u2014 NOT a combobox. To collect Engineering roles:\n\n1. Navigate to https://www.moveworks.com/us/en/company/careers\n2. Use browser_snapshot to understand the page structure\n3. Use browser_console to apply the filter and extract job data:\n   - First, set the department filter by evaluating in the page context:\n     ```\n     const sel = document.querySelector('.cmp-job-listings__filter__departments');\n     if (sel) { sel.value = 'Engineering'; sel.dispatchEvent(new Event('change', {bubbles: true})); }\n     ```\n   - Wait a moment for the DOM to update, then extract all job listings:\n     ```\n     const jobs = [...document.querySelectorAll('.cmp-job-listings__job')].map(el => {\n       const titleEl = el.querySelector('.cmp-job-listings__job-title, .job-title, h3, [class*=\"title\"]');\n       const urlEl = el.querySelector('a[href*=\"sr_id\"], a[href*=\"careers/position\"]');\n       return { title: titleEl ? titleEl.innerText.trim() : '', url: urlEl ? urlEl.href : '' };\n     });\n     JSON.stringify(jobs);\n     ```\n   - If the above returns empty or fewer than 5 jobs, fall back to browser_snapshot and individually inspect links containing \"careers/position\"\n\n## Step 3: Apply hard filters (from PREFERENCES.md)\nHard filters \u2014 any role failing these is excluded immediately:\n- Bay Area onsite/hybrid only (Mountain View, San Jose, Palo Alto, Menlo Park, etc.)\n- Confirmed people-management scope required \u2014 JD must explicitly mention managing, hiring, mentoring engineers, or having direct reports\n- EM/Director level \u2014 no IC-only roles (Staff MLE, Senior MLE, Tech Lead without direct reports, Founding Engineer IC, etc.)\n- Role families to prioritize: EM/Director for Agentic AI, Conversational AI, LLM Platform, RAG/Search, ML Infra\n\n## Step 4: Score remaining roles\nScore 1\u2013100 using scoring-rubric.md. Top signals:\n- Agentic AI, multi-agent systems, LLM orchestration, RAG, ranking/relevance, ML platform\n- Scale (B+ users/queries handled)\n- People management scope confirmed in JD\n- Compensation bands (if publicly listed)\n\n## Step 5: Inspect shortlisted candidates\nFor each role passing hard filters, navigate to its URL and verify:\n- People management scope is confirmed (exact JD language preferred)\n- Location/work model/comp are confirmed\n- Top domain signals are present\n\n## Step 6: Archive results\nSave the shortlist to:\n- ~/Documents/jobsearch/results/YYYY-MM-DD-moveworks.md (human-readable, use output-format.md template)\n- ~/Documents/jobsearch/results/YYYY-MM-DD-moveworks.json (machine-readable, same structure as prior runs)\n\nReplace YYYY-MM-DD with today's date.\n\n## Step 7: Deliver to Telegram\nSend the shortlist to Ratul via Telegram. Use target `telegram` (home channel). Format as a clean message:\n\n```\n\ud83d\udccb Moveworks Job Shortlist \u2014 [DATE]\n\n\ud83d\udd0d Total roles reviewed: N \u2192 N shortlisted\n\n[RANK 1] [TITLE] \u2014 Score: XX\n\u2022 Department | Location | Work model | Comp\n\u2022 Hard filters: \u2705 / \u274c\n\u2022 Why it matches: 2-3 bullet points\n\u2022 Risks: 1-2 bullet points\n\u2022 Source: [URL]\n\n[Additional shortlisted roles in same format]\n\n---\nExcluded: [reason] \u2014 N roles\nNotes: [any notable friction points or changes from prior runs]\n```\n\nIf no roles pass hard filters, send a message saying so and note any new IC-only roles observed.\n\n## Important\n- This is a scheduled automated run \u2014 do NOT ask questions or request clarification\n- If the Moveworks page structure has changed and the extraction technique fails, try alternative selectors and document the change in the Notes section\n- Produce both .md and .json archive files every run \u2014 overwrite any existing file for the same date\n- Always deliver the Telegram message, even if the shortlist is empty",
+      "skills": [
+        "jobsearch"
+      ],
+      "skill": "jobsearch",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 5",
+        "display": "0 21 * * 5"
+      },
+      "schedule_display": "0 21 * * 5",
+      "repeat": {
+        "times": null,
+        "completed": 5
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-29T20:58:41.339254-07:00",
+      "next_run_at": "2026-09-04T21:00:00-07:00",
+      "last_run_at": "2026-08-28T21:05:06.299844-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram:-5179227170",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "profile": null
+    },
+    {
+      "id": "312572cb5e5c",
+      "name": "Hermes Config GitHub Backup",
+      "prompt": "You back up the Hermes configuration directory to a GitHub repo.\n\nCONFIG:\n- Source: ~/.hermes/\n- Destination repo: ~/hermes-workspace (github.com/ratulray/hermes-workspace)\n- Exclude: .env files (--exclude='.env*')\n\nWORKFLOW:\n1. cd ~/hermes-workspace && git pull --rebase origin main\n2. rsync -av --exclude='.env*' --exclude='.git/' --exclude='sessions/' ~/.hermes/ ~/hermes-workspace/hermes-backup/\n   (rsync is destructive in the dest relative to source, so only copy what you need: configs/, skills/, agents/, memories/, profiles/, cron/)\n   Actually do this instead:\n   mkdir -p ~/hermes-workspace/hermes-backup\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/config.yaml ~/hermes-workspace/hermes-backup/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/skills/ ~/hermes-workspace/hermes-backup/skills/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/agents/ ~/hermes-workspace/hermes-backup/agents/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/profiles/ ~/hermes-workspace/hermes-backup/profiles/ 2>/dev/null || true\n   (The memories/ dir may contain sensitive accumulated context \u2014 skip it)\n3. cd ~/hermes-workspace && git add hermes-backup/ && git commit -m \"Hermes config backup $(date '+%Y-%m-%d')\" && git push origin main\n4. Output: \"\u2705 Backup complete \u2014 pushed to github.com/ratulray/hermes-workspace\"",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 0",
+        "display": "0 8 * * 0"
+      },
+      "schedule_display": "0 8 * * 0",
+      "repeat": {
+        "times": null,
+        "completed": 2
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-17T22:36:55.389330-07:00",
+      "next_run_at": "2026-09-06T08:00:00-07:00",
+      "last_run_at": "2026-08-30T08:00:23.190338-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": null,
+      "profile": null,
+      "fire_claim": null,
+      "failure_streak": 0
+    }
+  ],
+  "updated_at": "2026-08-31T09:01:21.833212-07:00"
+}

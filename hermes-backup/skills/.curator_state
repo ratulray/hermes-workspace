@@ -1,0 +1,9 @@
+{
+  "last_report_path": "/Users/ratul/.hermes/logs/curator/20260904-023425",
+  "last_run_at": "2026-09-04T02:34:25.385229+00:00",
+  "last_run_duration_seconds": 0.681107,
+  "last_run_summary": "auto: 4 marked stale; llm: skipped (consolidation off)",
+  "last_run_summary_shown_at": "2026-08-28T02:05:59.786704+00:00",
+  "paused": false,
+  "run_count": 17
+}
