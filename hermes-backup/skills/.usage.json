@@ -5,14 +5,14 @@
     "created_by": null,
     "last_patched_at": "2026-07-23T22:51:12.882911+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-12T04:01:58.847020+00:00",
-    "last_viewed_at": "2026-09-12T04:01:58.845493+00:00",
+    "last_used_at": "2026-09-19T17:50:59.987202+00:00",
+    "last_viewed_at": "2026-09-19T17:50:59.985828+00:00",
     "patch_count": 4,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 1,
-    "view_count": 1
+    "use_count": 2,
+    "view_count": 2
   },
   "agentmail": {
     "archived_at": null,
@@ -406,14 +406,14 @@
     "created_by": null,
     "last_patched_at": "2026-08-22T04:19:46.518127+00:00",
     "last_reused_patch_generation": 0,
-    "last_used_at": "2026-09-12T04:01:02.638285+00:00",
-    "last_viewed_at": "2026-09-12T04:01:02.635430+00:00",
+    "last_used_at": "2026-09-19T17:49:25.493332+00:00",
+    "last_viewed_at": "2026-09-19T17:49:25.491938+00:00",
     "patch_count": 29,
     "patch_generation": 0,
     "pinned": false,
     "state": "active",
-    "use_count": 66,
-    "view_count": 59
+    "use_count": 77,
+    "view_count": 68
   },
   "kb-monitor": {
     "archived_at": null,

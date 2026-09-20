@@ -31,6 +31,9 @@ The user names a single employer and asks for current openings, e.g. "Use jobsea
 
 This skill targets **Senior Engineering Manager / Director of Engineering** roles in **Bay Area onsite or hybrid** positions — not general job search. See `PREFERENCES.md` for the full policy.
 
+### Multi-employer mode
+The user or calling job names **more than one** employer and wants one combined report across all of them, e.g. "compare Moveworks and OpenAI roles" or a scheduled multi-employer digest. This is a distinct mode from run mode — do not just repeat run mode's single-employer output once per employer. Load `references/multi-employer-weekly.md` for the loop, per-employer archiving, cross-employer ranking, and combined-delivery format; the single-employer Procedure below still applies per employer within that loop.
+
 ## Quick Reference
 
 | File | Purpose |
