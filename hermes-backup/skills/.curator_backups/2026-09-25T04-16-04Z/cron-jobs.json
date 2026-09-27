@@ -1,0 +1,196 @@
+{
+  "jobs": [
+    {
+      "id": "70bb168c25de",
+      "name": "KB Newsletter Monitor",
+      "prompt": "You monitor an AI knowledge base for new newsletter entries and surface relevant ones to Ratul for roadmap input.\n\n## Knowledge base location\nPath: /Users/ratul/Documents/agent-roadmap/newsletters/\n\n## Your job\n1. List the newsletter files sorted by modification time (newest first).\n2. Skip any files you've already processed (track last-seen in a simple text file at /Users/ratul/Documents/agent-roadmap/kb-monitor/last-seen.txt — create the directory if needed).\n3. For each NEW file since last run:\n   a. Read the file fully.\n   b. Assess whether its topics are relevant to Ratul's team (enterprise multi-agent conversational AI, focus on: agent orchestration patterns, quality/consistency, observability, complex workflows, HITL, agent evaluation, dev experience). Use your judgment — relevance isn't binary, surface anything with a plausible connection.\n   c. If relevant: send a Telegram message to Ratul summarizing the topic and asking if he wants a deeper dive. Format:\n\n   ---\n   [KB Signal] New entry: {filename}\n\n   Topic: {2-3 sentence summary of what it covers}\n\n   Relevance to your team: {why this matters for enterprise multi-agent work}\n\n   Want me to go deeper? (yes/no)\n   ---\n\n   Use send_message(action='list') first to find the correct Telegram target.\n\n4. If Ratul says YES:\n   - Load the last30days skill: skill_view(name='last30days')\n   - Use the skill to research the topic online (get diverse perspectives from last 30 days)\n   - Create a deep-dive file at /Users/ratul/Documents/agent-roadmap/kb-deep-dives/{date}-{slug}.md with:\n     - Summary of what the research found\n     - 3-5 concrete roadmap ideas with brief implementation considerations\n     - Links to key resources\n   - Send Ratul a Telegram message: 'Done — created deep dive at {filepath}. Review it and adjust the roadmap as needed.'\n\n5. If Ratul says NO: do nothing further for that entry.\n\n## Important\n- Only process new files since last run. Don't re-process old ones.\n- Be selective but not overly narrow — surface anything that could inform the agent orchestration strategy.\n- Keep Telegram messages concise — this is a signal, not a full report.\n- Store the last-seen marker AFTER processing, so failures do not skip files.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 9 * * 1",
+        "display": "0 9 * * 1"
+      },
+      "schedule_display": "0 9 * * 1",
+      "repeat": {
+        "times": 1440,
+        "completed": 31
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-21T23:15:01.908653-07:00",
+      "next_run_at": "2026-09-28T09:00:00-07:00",
+      "last_run_at": "2026-09-21T09:01:16.086776-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": "/Users/ratul/Documents/agent-roadmap",
+      "last_dispatch": {
+        "scheduled_at": "2026-09-21T09:00:00-07:00",
+        "dispatched_at": "2026-09-21T09:00:23.225381-07:00",
+        "lateness_seconds": 23.2,
+        "kind": "on_time"
+      },
+      "fire_claim": null,
+      "failure_streak": 0
+    },
+    {
+      "id": "54c9ff20ac59",
+      "name": "Leadership Coach — Weekly Friday Session",
+      "prompt": "You are Ratul Ray's leadership coach. Every Friday, you run a coaching session with him.\n\nWORKFLOW:\n\n1. SCAN the tips folder: /Users/ratul/Documents/leadership_notes/tips/winning-with-people/\n   - Pick exactly 2 tips that are different from what was covered recently\n   - Check /tmp/leadership-coaching-last-topics.txt to avoid repeating same tips\n   - Read both tip files but do NOT reveal the tip content or Maxwell's quotes to Ratul\n\n2. RESEARCH: Run web searches to gather current perspectives, expert takes, and frameworks on the two topics. Focus on: what great leaders do, common failure modes, practical advice. Use last30days or web search.\n\n3. DELIVER via send_message to telegram:\n\nSend ONE question at a time. Wait for his answer before sending the next. Do not reveal the tips or source material.\n\nAfter all questions are answered, send a comprehensive feedback report that:\n- Judges each answer against what great leadership looks like\n- Is brutally honest — name patterns, blind spots, specific risks\n- Identifies the through-line across all answers\n- Ends with ONE concrete action for the coming week\n\n4. After Ratul has answered all questions and you have sent the final feedback report, save a session summary to /Users/ratul/Documents/leadership_conversation/{YYYY-MM-DD}.md that includes: the two tips used, each question asked, Ratul's actual answers, and your feedback/assessment. Do not create this file before the session is complete.\n\nAlso update /tmp/leadership-coaching-last-topics.txt with the two tip IDs used.\n\nTONE: Warm but direct. Questions should feel like a thoughtful mentor who knows Ratul's context (Sr EM, Agentic AI at ServiceNow, formerly Meta). No generic questions — make them specific to tech/engineering leadership.",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 5",
+        "display": "0 21 * * 5"
+      },
+      "schedule_display": "0 21 * * 5",
+      "repeat": {
+        "times": 1440,
+        "completed": 23
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-05-21T23:27:33.347508-07:00",
+      "next_run_at": "2026-09-25T21:00:00-07:00",
+      "last_run_at": "2026-09-19T10:51:55.721061-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal",
+        "file",
+        "web",
+        "skills"
+      ],
+      "workdir": "/Users/ratul",
+      "last_dispatch": {
+        "scheduled_at": "2026-09-18T21:00:00-07:00",
+        "dispatched_at": "2026-09-19T10:49:18.399031-07:00",
+        "lateness_seconds": 49758.4,
+        "kind": "catch_up"
+      },
+      "fire_claim": null,
+      "failure_streak": 0
+    },
+    {
+      "id": "bf4a670129fc",
+      "name": "Weekly Job Search — Moveworks + OpenAI",
+      "prompt": "Use skill_view(name=\"jobsearch\") to load the jobsearch skill, then follow references/multi-employer-weekly.md for the full procedure (multi-employer loop, per-employer archiving, global ranking, and combined delivery format).\n\nWhitelisted employers for this run, in processing/tie-break order: MOVEWORKS (https://www.moveworks.com/us/en/company/careers, custom web component — see references/ats-custom-web-component.md), OPENAI (https://jobs.ashbyhq.com/openai, API endpoint https://api.ashbyhq.com/posting-api/job-board/openAI). Process these two ONLY — no other employer from EMPLOYERS.yaml.\n\nDeliver the combined report to Ratul via Telegram in one message, per the format in multi-employer-weekly.md.",
+      "skills": [
+        "jobsearch"
+      ],
+      "skill": "jobsearch",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 21 * * 5",
+        "display": "0 21 * * 5"
+      },
+      "schedule_display": "0 21 * * 5",
+      "repeat": {
+        "times": null,
+        "completed": 9
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-07-29T20:58:41.339254-07:00",
+      "next_run_at": "2026-09-25T21:00:00-07:00",
+      "last_run_at": "2026-09-19T10:56:25.747206-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "telegram:-5179227170",
+      "origin": null,
+      "enabled_toolsets": null,
+      "workdir": null,
+      "profile": null,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-18T21:00:00-07:00",
+        "dispatched_at": "2026-09-19T10:49:18.399031-07:00",
+        "lateness_seconds": 49758.4,
+        "kind": "catch_up"
+      },
+      "fire_claim": null,
+      "failure_streak": 0
+    },
+    {
+      "id": "312572cb5e5c",
+      "name": "Hermes Config GitHub Backup",
+      "prompt": "You back up the Hermes configuration directory to a GitHub repo.\n\nCONFIG:\n- Source: ~/.hermes/\n- Destination repo: ~/hermes-workspace (github.com/ratulray/hermes-workspace)\n- Exclude: .env files (--exclude='.env*')\n\nWORKFLOW:\n1. cd ~/hermes-workspace && git pull --rebase origin main\n2. rsync -av --exclude='.env*' --exclude='.git/' --exclude='sessions/' ~/.hermes/ ~/hermes-workspace/hermes-backup/\n   (rsync is destructive in the dest relative to source, so only copy what you need: configs/, skills/, agents/, memories/, profiles/, cron/)\n   Actually do this instead:\n   mkdir -p ~/hermes-workspace/hermes-backup\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/config.yaml ~/hermes-workspace/hermes-backup/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/skills/ ~/hermes-workspace/hermes-backup/skills/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/agents/ ~/hermes-workspace/hermes-backup/agents/ 2>/dev/null || true\n   rsync -av --exclude='.env*' --exclude='.git' --exclude='sessions' ~/.hermes/profiles/ ~/hermes-workspace/hermes-backup/profiles/ 2>/dev/null || true\n   (The memories/ dir may contain sensitive accumulated context — skip it)\n3. cd ~/hermes-workspace && git add hermes-backup/ && git commit -m \"Hermes config backup $(date '+%Y-%m-%d')\" && git push origin main\n4. Output: \"✅ Backup complete — pushed to github.com/ratulray/hermes-workspace\"",
+      "skills": [],
+      "skill": null,
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 8 * * 0",
+        "display": "0 8 * * 0"
+      },
+      "schedule_display": "0 8 * * 0",
+      "repeat": {
+        "times": null,
+        "completed": 5
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-08-17T22:36:55.389330-07:00",
+      "next_run_at": "2026-09-27T08:00:00-07:00",
+      "last_run_at": "2026-09-20T08:00:24.899190-07:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "deliver": "local",
+      "origin": null,
+      "enabled_toolsets": [
+        "terminal"
+      ],
+      "workdir": null,
+      "profile": null,
+      "fire_claim": null,
+      "failure_streak": 0,
+      "last_dispatch": {
+        "scheduled_at": "2026-09-20T08:00:00-07:00",
+        "dispatched_at": "2026-09-20T08:00:00.217036-07:00",
+        "lateness_seconds": 0.2,
+        "kind": "on_time"
+      }
+    }
+  ],
+  "updated_at": "2026-09-21T09:01:16.087964-07:00"
+}
