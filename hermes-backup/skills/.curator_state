@@ -1,9 +1,9 @@
 {
-  "last_report_path": "/Users/ratul/.hermes/logs/curator/20260925-041604",
-  "last_run_at": "2026-09-25T04:16:04.274225+00:00",
-  "last_run_duration_seconds": 0.833368,
-  "last_run_summary": "auto: 50 marked stale, 1 archived; llm: skipped (consolidation off)",
-  "last_run_summary_shown_at": "2026-09-18T03:33:02.659826+00:00",
+  "last_report_path": "/Users/ratul/.hermes/logs/curator/20261002-042825",
+  "last_run_at": "2026-10-02T04:28:25.858895+00:00",
+  "last_run_duration_seconds": 0.363691,
+  "last_run_summary": "auto: 1 archived, 1 reactivated; llm: skipped (consolidation off)",
+  "last_run_summary_shown_at": "2026-09-25T04:16:04.274225+00:00",
   "paused": false,
-  "run_count": 20
+  "run_count": 21
 }
