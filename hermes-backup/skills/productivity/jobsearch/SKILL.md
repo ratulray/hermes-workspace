@@ -1,7 +1,7 @@
 ---
 name: jobsearch
-description: Rank live openings from a named employer's careers portal against Ratul's background and EM/Director-level job search preferences. Use when the user names a single employer and wants current openings scored and returned as a ranked shortlist.
-version: 1.1.0
+description: Rank live openings from a named employer's careers portal against Ratul's background and EM/Director-level job search preferences. Use when the user names a single employer and wants current openings scored and returned as a ranked shortlist; also builds the monthly job-description corpus (tech-industry employers only, capped) that the skillminer tool analyzes.
+version: 1.2.0
 author: Ratul Ray
 license: MIT
 metadata:
@@ -34,6 +34,12 @@ This skill targets **Senior Engineering Manager / Director of Engineering** role
 ### Multi-employer mode
 The user or calling job names **more than one** employer and wants one combined report across all of them, e.g. "compare Moveworks and OpenAI roles" or a scheduled multi-employer digest. This is a distinct mode from run mode — do not just repeat run mode's single-employer output once per employer. Load `references/multi-employer-weekly.md` for the loop, per-employer archiving, cross-employer ranking, and combined-delivery format; the single-employer Procedure below still applies per employer within that loop.
 
+### Monthly corpus mode
+The user asks for the monthly crawl / JD corpus (or a scheduled monthly job does), e.g. "build this month's JD corpus". This mode collects up to 30 job descriptions from a tech-only employer pool into `{data_dir}/results/<YYYY-MM>/jds/` for pattern analysis; it does not rank or run the analysis. Load `references/monthly-corpus.md` for the pool, caps, file format and manifest. Do not use it for a single-employer request.
+
+### Web-sweep mode
+The user asks for an open-web search across many companies for a title family, e.g. "search online for Director of AI Engineering or Senior Manager of Agentic AI roles" with no specific employer named. This is a different shape from run/multi-employer/monthly corpus: the input is a title family + a list of "known companies" the user wants to scan, not an employer pool from `EMPLOYERS.yaml`. Output is a wide-but-shallow list (no per-role scoring), which the user then manually trims before any deeper work. Load `references/web-sweep.md` for the full procedure, output schema, and the LinkedIn/anti-scrape workarounds that come up.
+
 ## Quick Reference
 
 | File | Purpose |
@@ -43,6 +49,9 @@ The user or calling job names **more than one** employer and wants one combined 
 | `{data_dir}/RESUME_SUMMARY.md` | Primary background-match input — role history, scope/team-size evidence, domain signals, derived from Ratul's actual resume |
 | `~/.hermes/memories/USER.md` | Secondary/general profile context (installation-managed, do not duplicate) |
 | `{data_dir}/APPLICATIONS.yaml` | Optional — prior/submitted applications, for duplicate checks only |
+| `{data_dir}/EMPLOYERS.yaml` → `monthly_corpus` | Pool of tech-only employers, `max_total_jds`, `max_per_employer` for monthly corpus mode |
+| `${HERMES_SKILL_DIR}/references/monthly-corpus.md` | Monthly corpus procedure, JD file format, manifest |
+| `${HERMES_SKILL_DIR}/references/web-sweep.md` | Web-sweep mode: title-family search across the open web, output schema, LinkedIn/anti-scrape workarounds, post-sweep trimming flow |
 | `{data_dir}/results/` | Shortlist archive — `YYYY-MM-DD-{employer-slug}.md` and `.json` from each run |
 | `${HERMES_SKILL_DIR}/references/scoring-rubric.md` | Scoring weights and tie-breakers |
 | `${HERMES_SKILL_DIR}/references/output-format.md` | Required output structure |
@@ -73,7 +82,7 @@ The user or calling job names **more than one** employer and wants one combined 
 9. Score the remaining roles using `scoring-rubric.md`, using `RESUME_SUMMARY.md` as the primary source for the background-match and scope/seniority-fit scores.
 10. Return the top 10 roles (or fewer) using `output-format.md` — follow the exact field names and bullet structure defined there. Every shortlisted role must have: score, work model, scope, why it matches (bullets), risks or gaps (bullets), source URL.
 11. If `{data_dir}/APPLICATIONS.yaml` exists and has entries, flag any shortlisted role that matches a prior application.
-12. **Archive the shortlist to disk.** After returning the shortlist, write two files to `{data_dir}/results/`:
+12. **Archive the shortlist to disk.** After returning the shortlist, write two files to `{data_dir}/results/<YYYY-MM>/` (month-bucketed — see Pitfalls):
     - `{YYYY-MM-DD}-{employer-slug}.md` — the full shortlist in the output-format structure, as returned to the user
     - `{YYYY-MM-DD}-{employer-slug}.json` — a machine-readable summary with these exact top-level fields:
       - `employer`, `portal`, `date`, `total_reviewed`, `total_shortlisted`
@@ -81,7 +90,7 @@ The user or calling job names **more than one** employer and wants one combined 
       - `roles[].hard_filters_pass`, `key_signals[]`, `risks[]`
       - `exclusions` (breakdown of non-shortlisted roles by reason), `notes[]`
     - Verify the `.json` is not truncated — it must contain the same `total_reviewed`, `total_shortlisted`, and all `exclusions` breakdown fields as the `.md`.
-    - If the directory does not exist, create it first.
+    - If the directory does not exist, create it (`mkdir -p` is fine — the month bucket is the user's standing convention).
     - If a file for today's date and employer already exists, overwrite it (treat it as a fresh run, not a duplicate).
 
 Note: search-term narrowing reduces browsing cost but is not a substitute for the hard filters in step 6 — a title match from search terms alone (e.g. "Engineering Manager") does not confirm Bay Area work model or management scope; those are still verified per-posting in step 7.
@@ -135,6 +144,11 @@ When inferring fit, label it as an inference and tie it to concrete signals from
 - **Don't skip the output format** — the shortlist must follow `output-format.md`'s exact field names and bullet structure. Write to the format, not around it.
 - **Don't confuse page-level Work Personas language with role-specific work model requirements.** Some employers (notably ServiceNow/Moveworks) publish generic "Work Personas" boilerplate at the page or footer level listing "flexible, remote, or required in office" as categories that apply across the org. This is NOT authoritative for any individual role. Always open the JD and look for the explicit onsite/hybrid statement in the role's own description body. Conversely, when a role does require onsite work, the explicit language may only appear inside the individual JD (e.g., "in-person team culture, collaborating on-site with colleagues every day") — never project it from page-level context, but do verify it IS there when the role is in Mountain View.
 - **Try `curl` before browser on any job board.** Even on sites described as "custom web components" or heavily JS-rendered, a `curl` call often returns full structured HTML. Always attempt `curl -s --max-time 15 <careers-url>` first. If it returns meaningful HTML with job data, use that. Only fall back to browser/JS injection when curl returns minimal content.
+
+- **Monthly corpus mode is not a shortlist run.** Do not apply the Bay Area filter there, do not return a ranked shortlist, and never add an employer outside `monthly_corpus.pool` (no tech roles at banks, pharma, insurers or consultancies).
+- **Month-bucket every artifact.** `{data_dir}/results/` is bucketed by `<YYYY-MM>/`. Any new file (sweep, run, monthly corpus, JD download) goes under the current month. Existing files in a flat layout must be re-bucketed on first touch. This keeps the archive diffable for the monthly skill-mining pipeline.
+- **LinkedIn blocks every direct fetch.** Any `linkedin.com/jobs/view/...` URL will return 403/empty from both `curl` and `web_extract`. When a LinkedIn URL is the only source for a role, derive the canonical source first: try the company's own careers site (`<company>.com/careers`, `<company>.com/company/careers`, Greenhouse/Lever/Ashby boards at the same `job-id` if the source page hints at it), or fall back to a LinkedIn mirror (e.g. `trabajo.org/job-<id>`). State the redirect explicitly in the JD file's `fetched_url` field so the audit trail is honest. Only mark `status: blocked` if every alternative is also unreachable.
+- **Web-sweep outputs are human-trimmed, not scored.** Do not apply the 6-category scoring rubric to a sweep — the sweep is a wide filter, the run-mode shortlist is the narrow filter. Trim, then run the per-employer skill for the keepers.
 
 ## Verification
 

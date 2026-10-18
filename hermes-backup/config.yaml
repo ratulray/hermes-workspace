@@ -255,6 +255,8 @@ display:
   background_process_notifications: concise
   cleanup_progress: false
   tool_progress: all
+  in_app_tips: false
+  in_app_tours: false
 dashboard:
   theme: default
   show_token_analytics: false
