@@ -240,6 +240,7 @@ hermes send --to "telegram:Ratul Ray" "Take your time — I'll deliver feedback 
 - `references/troubleshooting.md` — common failure modes: hermes send pip error, last30days zero-results fallback, deliver:local vs telegram, tracking file updates
 
 | 2026-08-07 | 040, 090 | Genuine curiosity + generous giving | Seen vs. interrogated, generosity ledger |
+| 2026-10-23 | 062, 044 | Coaching the pattern + standards set by daily treatment | Recurring complainants; what you tolerate sets the bar |
 | 2026-08-14 | 103, 099 | Learnable relational skills + complementary strengths | Partnership complementarity; effective vs. stalled collaborations |
 
 *Last updated: 2026-08-14*

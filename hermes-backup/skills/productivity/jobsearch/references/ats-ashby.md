@@ -48,6 +48,8 @@ curl -s --max-time 15 'https://api.ashbyhq.com/posting-api/job-board/openai'
 **Both are valid Ashby responses.** Different employers get different root keys (`postings` vs `jobs`) and slightly different internal field names. Always check which variant the API returns before piping to jq — adjust your jq path accordingly (`.postings[]` vs `.jobs[]`). Job ID field also varies: `uuid` (Variant A) or raw `id` string (Variant B). Use `jq 'keys'` on the root object to determine the variant before filtering.
 
 - `uuid` maps to the job detail URL: `https://jobs.ashbyhq.com/<employer>/<uuid>`
+- **Compensation needs a query parameter.** The plain endpoint returns postings WITHOUT a `compensation` key. Fetch `https://api.ashbyhq.com/posting-api/job-board/<slug>?includeCompensation=true` to get `compensation.scrapeableCompensationSalarySummary` (e.g. "$401K - $445K") and `compensation.compensationTierSummary` (e.g. "$401K - $445K • Offers Equity"). Use the tier summary for the Comp field in output-format.md.
+- **`workplaceType` is the cheapest work-model signal.** It is one of: `OnSite`, `Hybrid`, `Remote`, or `null`. Read it from the API listing, then look for an explicit JD sentence to quote (e.g. "This role is in-person at our San Francisco office.", "We use a hybrid work model of 3 days in the office per week", "This role is based in our San Francisco HQ"). If the JD has no such sentence, report the work model as coming from the ATS `workplaceType` field and label it as such.
 - `department.name` is useful for filtering but **do not trust it for hard filters** — some EM/Director roles live in unexpected departments (e.g. Security, Infrastructure)
 - `employmentType` is usually "Full-time" for all technical roles — not a discriminator
 
