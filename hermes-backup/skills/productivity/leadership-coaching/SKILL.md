@@ -160,6 +160,8 @@ The goal is **reflective discomfort** — not making him feel bad, but making hi
 - **Update BEFORE sending questions** — if the job crashes mid-send, the topic is already marked as used and won't be double-selected on retry.
 - Read this file at session start to avoid repeating topics.
 - Append the two tip IDs immediately after tip selection, before sending anything.
+- **The file lives in `/tmp` and gets wiped on reboot.** If it's missing, reconstruct it from the session files in `/Users/ratul/Documents/leadership_conversation/*.md` (grep for `winning-with-people-NNN`) before selecting tips. Don't skip the check just because the file is absent.
+- Keep one line per session in the format `YYYY-MM-DD | NNN, NNN | short theme | note` so history survives future wipes.
 
 **Session history**: Consider a running log at `/Users/ratul/Documents/leadership_notes/coaching-sessions/` with one file per session (date as filename) capturing: tips selected, research notes, questions asked, and overall assessment.
 
@@ -217,7 +219,17 @@ hermes send --to "telegram:Ratul Ray" "Take your time — I'll deliver feedback 
 - `send_message` tool is NOT available — do not use it
 - `hermes send` works in any non-interactive context (cron, pipe, subprocess)
 - Target name format: `"telegram:<Name>"` where `<Name>` is the contact's display name as shown in `hermes send --list telegram`
-- **Never send Q1 and Q2 in the same cron tick** — the gap between them is where reflection lives
+- **Never send Q1 and Q2 in the same cron tick** — the gap between them is where reflection lives. Exception: if the previous 2+ sessions went out unanswered, send both in one tick (a week between ticks is enough reflection time) and open the message by naming the silence and inviting format feedback.
+
+### Repeated sends, no replies (3+ weeks)
+If two or more consecutive sessions go out with no answer, stop assuming the questions are good and ask whether the *channel* is the problem. The next session's opening message should name the silence directly and invite him to say what is wrong with the format (length, channel, timing, question style). If silence continues after that, drop to one question per week and shorter messages.
+
+### Check for a pending reply before sending the next question
+Ratul's Telegram replies land as inbound messages handled by the gateway (session key `agent:main:telegram:dm:7334241247`). To check for an answer before sending the next question, query the state DB:
+`sqlite3 ~/.hermes/state.db "select datetime(timestamp,'unixepoch','localtime'), role, substr(content,1,300) from messages where session_id='<telegram session id>' order by timestamp desc limit 15;"`
+Find the telegram session id with:
+`sqlite3 ~/.hermes/state.db "select id, session_key from sessions where chat_id='7334241247';"`
+Note: the telegram session id changes when the agent cache is evicted, so don't hardcode it.
 
 ### Research returning near-zero results (402 on Reddit, X not authenticated): Fall back to hackernews + web search. Do NOT retry the failing source. Quality of research matters less than quality of questions — if research is thin, fall back to known frameworks and your own knowledge of leadership.
 - **Asking questions that are too soft**: If the question doesn't feel like it could produce an uncomfortable truth, it needs to be harder.
@@ -239,12 +251,6 @@ hermes send --to "telegram:Ratul Ray" "Take your time — I'll deliver feedback 
 - `references/session-2026-07-17.md` — Jul 17 session (consistency + earned trust / genuine allies vs. strategic contacts), tips 055 + 070, 2 questions sent via `hermes send`, answers pending
 - `references/troubleshooting.md` — common failure modes: hermes send pip error, last30days zero-results fallback, deliver:local vs telegram, tracking file updates
 
-| 2026-08-07 | 040, 090 | Genuine curiosity + generous giving | Seen vs. interrogated, generosity ledger |
-| 2026-10-23 | 062, 044 | Coaching the pattern + standards set by daily treatment | Recurring complainants; what you tolerate sets the bar |
-| 2026-08-14 | 103, 099 | Learnable relational skills + complementary strengths | Partnership complementarity; effective vs. stalled collaborations |
-
-*Last updated: 2026-08-14*
-
 ---
 
 ## Session Reference Log
@@ -262,3 +268,13 @@ Use this to reconstruct what was covered in each session without re-reading full
 | 2026-07-24 | 104, 082 | Self-awareness (reprise) + joy at success | Inner work, celebrating without stealing |
 | 2026-07-31 | 065, 085 | Self-security + stealing thunder | Vulnerability safety, attribution without self-promotion |
 | 2026-08-07 | 040, 090 | Genuine curiosity + generous giving | Seen vs. interrogated, generosity ledger |
+| 2026-08-14 | 103, 099 | Learnable relational skills + complementary strengths | Partnership complementarity; effective vs. stalled collaborations |
+| 2026-08-21 | 022, 033 | (theme not logged in session file) | — |
+| 2026-08-28 | 103, 099 | Learnable relational skills + complementary strengths | Partnership complementarity |
+| 2026-09-04 | 070, 096 | Genuine allies + collaborative achievement | — |
+| 2026-09-25 | 086, 093 | Golden rule + likability | — |
+| 2026-10-03 | 065, 104 | Self-security + inner work first | Vulnerability safety, attribution without self-promotion |
+| 2026-10-09 | 103, 104 | Learnable relational skills + inner work | — |
+| 2026-10-16 | 030, 045 | Usefulness orientation + positive intent | Henry Ford test, seen vs. interrogated |
+| 2026-10-23 | 062, 044 | Coaching the pattern + standards via daily treatment | Recurring complainants; what you tolerate sets the bar |
+| 2026-10-30 | 064, 019 | Silence when silence shouldn't be possible + owning the mistake | Last 3 weeks went unanswered; Q1 names that and invites format feedback |

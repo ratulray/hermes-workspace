@@ -1,0 +1,11 @@
+# runtime artifacts — not config
+*.lock
+*.db
+*.db-shm
+*.db-wal
+cron/output/
+cron/catch_up_occurrences
+cron/ticker_heartbeat
+cron/ticker_last_success
+cron/usage_audit.jsonl
+skills/.locks/

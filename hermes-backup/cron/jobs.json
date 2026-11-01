@@ -20,30 +20,30 @@
       "schedule_display": "0 9 * * 1",
       "repeat": {
         "times": 1440,
-        "completed": 35
+        "completed": 36
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:15:01.908653-07:00",
-      "next_run_at": "2026-10-26T09:00:00-07:00",
-      "last_run_at": "2026-10-19T09:16:37.197758-07:00",
-      "last_status": "error",
-      "last_error": "Terminal is completely unresponsive — all commands timing out, including trivial ones like `echo \"test\"`. Cannot list newsletters, read files, or write last-seen markers. File system and shell operations are blocked at the infrastructure level. Please investigate the execution environment — the Hermes terminal backend appears non-functional.",
+      "next_run_at": "2026-11-02T09:00:00-07:00",
+      "last_run_at": "2026-10-26T09:02:13.088326-07:00",
+      "last_status": "ok",
+      "last_error": null,
       "last_delivery_error": null,
       "deliver": "telegram",
       "origin": null,
       "enabled_toolsets": null,
       "workdir": "/Users/ratul/Documents/agent-roadmap",
       "last_dispatch": {
-        "scheduled_at": "2026-10-19T09:00:00-07:00",
-        "dispatched_at": "2026-10-19T09:00:35.063171-07:00",
-        "lateness_seconds": 35.1,
+        "scheduled_at": "2026-10-26T09:00:00-07:00",
+        "dispatched_at": "2026-10-26T09:00:38.734519-07:00",
+        "lateness_seconds": 38.7,
         "kind": "on_time"
       },
       "fire_claim": null,
-      "failure_streak": 1
+      "failure_streak": 0
     },
     {
       "id": "54c9ff20ac59",
@@ -65,15 +65,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": 1440,
-        "completed": 28
+        "completed": 29
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:27:33.347508-07:00",
-      "next_run_at": "2026-10-30T21:00:00-07:00",
-      "last_run_at": "2026-10-23T21:05:45.877301-07:00",
+      "next_run_at": "2026-11-06T21:00:00-07:00",
+      "last_run_at": "2026-10-30T21:12:18.388588-07:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -87,9 +87,9 @@
       ],
       "workdir": "/Users/ratul",
       "last_dispatch": {
-        "scheduled_at": "2026-10-23T21:00:00-07:00",
-        "dispatched_at": "2026-10-23T21:00:37.418132-07:00",
-        "lateness_seconds": 37.4,
+        "scheduled_at": "2026-10-30T21:00:00-07:00",
+        "dispatched_at": "2026-10-30T21:00:41.144057-07:00",
+        "lateness_seconds": 41.1,
         "kind": "on_time"
       },
       "fire_claim": null,
@@ -117,15 +117,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": null,
-        "completed": 14
+        "completed": 15
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-29T20:58:41.339254-07:00",
-      "next_run_at": "2026-10-30T21:00:00-07:00",
-      "last_run_at": "2026-10-23T21:11:38.958565-07:00",
+      "next_run_at": "2026-11-06T21:00:00-07:00",
+      "last_run_at": "2026-10-30T21:10:09.795420-07:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -135,9 +135,9 @@
       "workdir": null,
       "profile": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-23T21:00:00-07:00",
-        "dispatched_at": "2026-10-23T21:00:37.418132-07:00",
-        "lateness_seconds": 37.4,
+        "scheduled_at": "2026-10-30T21:00:00-07:00",
+        "dispatched_at": "2026-10-30T21:00:41.144057-07:00",
+        "lateness_seconds": 41.1,
         "kind": "on_time"
       },
       "fire_claim": null,
@@ -163,15 +163,15 @@
       "schedule_display": "0 8 * * 0",
       "repeat": {
         "times": null,
-        "completed": 9
+        "completed": 10
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-17T22:36:55.389330-07:00",
-      "next_run_at": "2026-11-01T08:00:00-07:00",
-      "last_run_at": "2026-10-18T08:00:52.160822-07:00",
+      "next_run_at": "2026-11-08T08:00:00-08:00",
+      "last_run_at": "2026-10-25T08:03:37.230612-07:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -183,17 +183,17 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-10-25T08:02:38.539515-07:00",
-        "by": "Ratuls-Mac-mini.local:1667:b92d04d0f3f04da8b787a3a67bc7e13d"
+        "at": "2026-11-01T08:00:41.947929-08:00",
+        "by": "Ratuls-Mac-mini.local:1667:65775a90219c4d8396dedca4630b1cd9"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-10-25T08:00:00-07:00",
-        "dispatched_at": "2026-10-25T08:00:38.206195-07:00",
-        "lateness_seconds": 38.2,
+        "scheduled_at": "2026-11-01T08:00:00-08:00",
+        "dispatched_at": "2026-11-01T08:00:41.907745-08:00",
+        "lateness_seconds": 41.9,
         "kind": "on_time"
       }
     }
   ],
-  "updated_at": "2026-10-25T08:02:38.540546-07:00"
+  "updated_at": "2026-11-01T08:00:41.948360-08:00"
 }
