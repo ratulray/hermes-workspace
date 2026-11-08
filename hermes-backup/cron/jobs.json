@@ -20,15 +20,15 @@
       "schedule_display": "0 9 * * 1",
       "repeat": {
         "times": 1440,
-        "completed": 36
+        "completed": 37
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:15:01.908653-07:00",
-      "next_run_at": "2026-11-02T09:00:00-07:00",
-      "last_run_at": "2026-10-26T09:02:13.088326-07:00",
+      "next_run_at": "2026-11-09T09:00:00-08:00",
+      "last_run_at": "2026-11-02T09:01:42.318316-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -37,9 +37,9 @@
       "enabled_toolsets": null,
       "workdir": "/Users/ratul/Documents/agent-roadmap",
       "last_dispatch": {
-        "scheduled_at": "2026-10-26T09:00:00-07:00",
-        "dispatched_at": "2026-10-26T09:00:38.734519-07:00",
-        "lateness_seconds": 38.7,
+        "scheduled_at": "2026-11-02T09:00:00-08:00",
+        "dispatched_at": "2026-11-02T09:00:42.429288-08:00",
+        "lateness_seconds": 42.4,
         "kind": "on_time"
       },
       "fire_claim": null,
@@ -65,15 +65,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": 1440,
-        "completed": 29
+        "completed": 30
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:27:33.347508-07:00",
-      "next_run_at": "2026-11-06T21:00:00-07:00",
-      "last_run_at": "2026-10-30T21:12:18.388588-07:00",
+      "next_run_at": "2026-11-13T21:00:00-08:00",
+      "last_run_at": "2026-11-06T21:03:23.999889-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -87,18 +87,21 @@
       ],
       "workdir": "/Users/ratul",
       "last_dispatch": {
-        "scheduled_at": "2026-10-30T21:00:00-07:00",
-        "dispatched_at": "2026-10-30T21:00:41.144057-07:00",
-        "lateness_seconds": 41.1,
+        "scheduled_at": "2026-11-06T21:00:00-08:00",
+        "dispatched_at": "2026-11-06T21:00:52.519106-08:00",
+        "lateness_seconds": 52.5,
         "kind": "on_time"
       },
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 0,
+      "canonical_completions": [
+        "f69baf57d380448fbae4631c4453a482"
+      ]
     },
     {
       "id": "bf4a670129fc",
       "name": "Weekly Job Search — Moveworks + OpenAI",
-      "prompt": "Use skill_view(name=\"jobsearch\") to load the jobsearch skill, then follow references/multi-employer-weekly.md for the full procedure (multi-employer loop, per-employer archiving, global ranking, and combined delivery format).\n\nWhitelisted employers for this run, in processing/tie-break order: MOVEWORKS (https://www.moveworks.com/us/en/company/careers, custom web component — see references/ats-custom-web-component.md), OPENAI (https://jobs.ashbyhq.com/openai, API endpoint https://api.ashbyhq.com/posting-api/job-board/openAI). Process these two ONLY — no other employer from EMPLOYERS.yaml.\n\nDeliver the combined report to Ratul via Telegram in one message, per the format in multi-employer-weekly.md.",
+      "prompt": "Use skill_view(name=\"jobsearch\") to load the jobsearch skill, then follow references/multi-employer-weekly.md for the full procedure (multi-employer loop, per-employer archiving, global ranking, and combined delivery format).\n\nWhitelisted employers for this run, in processing/tie-break order: MOVEWORKS (https://www.moveworks.com/us/en/company/careers, custom web component — see references/ats-custom-web-component.md), OPENAI (https://jobs.ashbyhq.com/openai, API endpoint https://api.ashbyhq.com/posting-api/job-board/openAI). Process these two ONLY — no other employer from EMPLOYERS.yaml.\n\nARCHIVE AND DELIVER IN ONE SCRIPT PASS (do not hand-write the archive files):\nAfter all employers are analyzed, build ONE payload JSON at a scratch path describing every employer (schema and field notes are in references/multi-employer-weekly.md step 3e), then run:\n\npython3 /Users/ratul/.hermes/skills/productivity/jobsearch/scripts/archive_verify.py archive --input <payload.json>\n\nThat single command renders every per-employer .md and .json archive file, re-reads them from disk, verifies the schema/counts/ranks/exclusion-balance/URLs/MD-JSON consistency, and prints the combined multi-employer Telegram report between the --- BEGIN TELEGRAM MESSAGE --- and --- END TELEGRAM MESSAGE --- markers. Deliver that text to Ratul verbatim via Telegram (target telegram:-5179227170). Do NOT re-derive or hand-format the report.\n\nIf the script exits non-zero, it found a verification error — read the reported errors, fix the payload, and re-run the script. Do not hand-patch the generated files. The script still writes the archive files and the report on failure, so a bad count never blocks delivery.\n\nDo not ask questions or request clarification — this is a scheduled automated run. If any portal is unreachable, note it in that employer's section and continue.",
       "skills": [
         "jobsearch"
       ],
@@ -117,15 +120,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": null,
-        "completed": 15
+        "completed": 16
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-29T20:58:41.339254-07:00",
-      "next_run_at": "2026-11-06T21:00:00-07:00",
-      "last_run_at": "2026-10-30T21:10:09.795420-07:00",
+      "next_run_at": "2026-11-13T21:00:00-08:00",
+      "last_run_at": "2026-11-06T21:05:56.245376-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -135,13 +138,16 @@
       "workdir": null,
       "profile": null,
       "last_dispatch": {
-        "scheduled_at": "2026-10-30T21:00:00-07:00",
-        "dispatched_at": "2026-10-30T21:00:41.144057-07:00",
-        "lateness_seconds": 41.1,
+        "scheduled_at": "2026-11-06T21:00:00-08:00",
+        "dispatched_at": "2026-11-06T21:00:52.519106-08:00",
+        "lateness_seconds": 52.5,
         "kind": "on_time"
       },
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 0,
+      "canonical_completions": [
+        "31a7b20a283c4b38938282ede95aace3"
+      ]
     },
     {
       "id": "312572cb5e5c",
@@ -163,15 +169,15 @@
       "schedule_display": "0 8 * * 0",
       "repeat": {
         "times": null,
-        "completed": 10
+        "completed": 11
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-17T22:36:55.389330-07:00",
-      "next_run_at": "2026-11-08T08:00:00-08:00",
-      "last_run_at": "2026-10-25T08:03:37.230612-07:00",
+      "next_run_at": "2026-11-15T08:00:00-08:00",
+      "last_run_at": "2026-11-01T08:02:07.996993-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -183,17 +189,17 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-11-01T08:00:41.947929-08:00",
-        "by": "Ratuls-Mac-mini.local:1667:65775a90219c4d8396dedca4630b1cd9"
+        "at": "2026-11-08T08:00:53.462932-08:00",
+        "by": "Ratuls-Mac-mini.local:81190:b495fd92e9a54865964cc1da86cd4983"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-01T08:00:00-08:00",
-        "dispatched_at": "2026-11-01T08:00:41.907745-08:00",
-        "lateness_seconds": 41.9,
+        "scheduled_at": "2026-11-08T08:00:00-08:00",
+        "dispatched_at": "2026-11-08T08:00:53.426212-08:00",
+        "lateness_seconds": 53.4,
         "kind": "on_time"
       }
     }
   ],
-  "updated_at": "2026-11-01T08:00:41.948360-08:00"
+  "updated_at": "2026-11-08T08:00:53.463534-08:00"
 }

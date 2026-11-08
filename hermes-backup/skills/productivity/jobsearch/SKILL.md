@@ -51,7 +51,10 @@ The user asks for an open-web search across many companies for a title family, e
 | `{data_dir}/APPLICATIONS.yaml` | Optional — prior/submitted applications, for duplicate checks only |
 | `{data_dir}/EMPLOYERS.yaml` → `monthly_corpus` | Pool of tech-only employers, `max_total_jds`, `max_per_employer` for monthly corpus mode |
 | `${HERMES_SKILL_DIR}/references/monthly-corpus.md` | Monthly corpus procedure, JD file format, manifest |
-| `${HERMES_SKILL_DIR}/references/web-sweep.md` | Web-sweep mode: title-family search across the open web, output schema, LinkedIn/anti-scrape workarounds, post-sweep trimming flow |
+| `/Users/ratul/.hermes/skills/productivity/jobsearch/references/web-sweep.md` | Web-sweep mode: title-family search across the open web, output schema, LinkedIn/anti-scrape workarounds, post-sweep trimming flow |
+| `references/multi-employer-weekly.md` | Multi-employer loop, global cross-employer ranking, combined delivery format, whitelist discipline, scheduled-run constraints, token discipline |
+| `${HERMES_SKILL_DIR}/scripts/archive_verify.py` | Deterministic archive+verify+report generator. Renders every `.md`/`.json` archive file and the combined report from ONE payload, then re-reads them from disk and validates the schema, counts, ranks, exclusion balance and MD↔JSON consistency. Use this instead of hand-writing archive files. |
+| `${HERMES_SKILL_DIR}/scripts/test_archive_verify.py` | Self-test for the above (42 assertions, covers both the happy path and every fault the verifier claims to catch). Run after changing the script. |
 | `{data_dir}/results/` | Shortlist archive — `YYYY-MM-DD-{employer-slug}.md` and `.json` from each run |
 | `${HERMES_SKILL_DIR}/references/scoring-rubric.md` | Scoring weights and tie-breakers |
 | `${HERMES_SKILL_DIR}/references/output-format.md` | Required output structure |
@@ -82,16 +85,26 @@ The user asks for an open-web search across many companies for a title family, e
 9. Score the remaining roles using `scoring-rubric.md`, using `RESUME_SUMMARY.md` as the primary source for the background-match and scope/seniority-fit scores.
 10. Return the top 10 roles (or fewer) using `output-format.md` — follow the exact field names and bullet structure defined there. Every shortlisted role must have: score, work model, scope, why it matches (bullets), risks or gaps (bullets), source URL.
 11. If `{data_dir}/APPLICATIONS.yaml` exists and has entries, flag any shortlisted role that matches a prior application.
-12. **Archive the shortlist to disk.** After returning the shortlist, write two files to `{data_dir}/results/<YYYY-MM>/` (month-bucketed — see Pitfalls):
-    - `{YYYY-MM-DD}-{employer-slug}.md` — the full shortlist in the output-format structure, as returned to the user
+12. **Archive the shortlist to disk.** After returning the shortlist, write the archive files to `{data_dir}/results/<YYYY-MM>/` (month-bucketed — see Pitfalls):
+    - `{YYYY-MM-DD}-{employer-slug}.md` — the full shortlist in the output-format structure
     - `{YYYY-MM-DD}-{employer-slug}.json` — a machine-readable summary with these exact top-level fields:
       - `employer`, `portal`, `date`, `total_reviewed`, `total_shortlisted`
       - `roles[].rank`, `title`, `score`, `department`, `location`, `work_model`, `comp`, `url`
       - `roles[].hard_filters_pass`, `key_signals[]`, `risks[]`
       - `exclusions` (breakdown of non-shortlisted roles by reason), `notes[]`
-    - Verify the `.json` is not truncated — it must contain the same `total_reviewed`, `total_shortlisted`, and all `exclusions` breakdown fields as the `.md`.
-    - If the directory does not exist, create it (`mkdir -p` is fine — the month bucket is the user's standing convention).
-    - If a file for today's date and employer already exists, overwrite it (treat it as a fresh run, not a duplicate).
+    - **Use the script, do not hand-write these files.** Build one payload JSON describing every employer in the run, then:
+      ```bash
+      python3 ${HERMES_SKILL_DIR}/scripts/archive_verify.py archive --input <payload.json>
+      ```
+      The script renders every `.md` and `.json` from that single payload, re-reads each file back from disk, and verifies the schema, the counts, rank contiguity, score ordering, exclusion balance (every reviewed-but-not-shortlisted role must be accounted for), source-URL presence, and MD↔JSON consistency. It also renders the combined multi-employer Telegram report when the payload carries more than one employer. It prints the report between `--- BEGIN TELEGRAM MESSAGE ---` and `--- END TELEGRAM MESSAGE ---` — deliver that text verbatim.
+    - The script exits non-zero when verification finds an error. **Fix the payload and re-run** rather than hand-patching the output files. Archive files and the report are always written even when verification fails, so a failed count never swallows the delivery.
+    - Optional `verify` and `report` subcommands re-check or re-render already-archived files without re-running a search:
+      ```bash
+      python3 ${HERMES_SKILL_DIR}/scripts/archive_verify.py verify --date YYYY-MM-DD
+      python3 ${HERMES_SKILL_DIR}/scripts/archive_verify.py report --date YYYY-MM-DD
+      ```
+    - If the directory does not exist, the script creates it (the month bucket is the user's standing convention).
+    - If a file for today's date and employer already exists, it is overwritten (treat it as a fresh run, not a duplicate).
 
 Note: search-term narrowing reduces browsing cost but is not a substitute for the hard filters in step 6 — a title match from search terms alone (e.g. "Engineering Manager") does not confirm Bay Area work model or management scope; those are still verified per-posting in step 7.
 
@@ -150,6 +163,11 @@ When inferring fit, label it as an inference and tie it to concrete signals from
 - **Month-bucket every artifact.** `{data_dir}/results/` is bucketed by `<YYYY-MM>/`. Any new file (sweep, run, monthly corpus, JD download) goes under the current month. Existing files in a flat layout must be re-bucketed on first touch. This keeps the archive diffable for the monthly skill-mining pipeline.
 - **LinkedIn blocks every direct fetch.** Any `linkedin.com/jobs/view/...` URL will return 403/empty from both `curl` and `web_extract`. When a LinkedIn URL is the only source for a role, derive the canonical source first: try the company's own careers site (`<company>.com/careers`, `<company>.com/company/careers`, Greenhouse/Lever/Ashby boards at the same `job-id` if the source page hints at it), or fall back to a LinkedIn mirror (e.g. `trabajo.org/job-<id>`). State the redirect explicitly in the JD file's `fetched_url` field so the audit trail is honest. Only mark `status: blocked` if every alternative is also unreachable.
 - **Web-sweep outputs are human-trimmed, not scored.** Do not apply the 6-category scoring rubric to a sweep — the sweep is a wide filter, the run-mode shortlist is the narrow filter. Trim, then run the per-employer skill for the keepers.
+- **The calling prompt's whitelist is the scope — never widen it.** An uncommented `EMPLOYERS.yaml` entry is a portal URL on file, not a request to search it. Never add employers because they look relevant; never interpret "all uncommented entries" as the target set. The YAML is a lookup table of how to reach a portal, not a run queue. If the user wants a scope change, edit the calling job's prompt; if they want a portal change, edit the YAML — those are two different knobs.
+- **Scheduled runs cannot be interactive.** A cron run has no user present to approve anything, so every branch the procedure needs must be pre-resolved in the prompt or defaulted in the procedure. A run that stalls on a question delivers nothing.
+- **Consolidate analysis into fewer script passes.** Cost scales with LLM round-trips times context size, because each round-trip re-sends the whole conversation. Deriving one filter bucket per conversational step multiplies round-trips and grows the context each time — fold the filtering logic into one script that emits every bucket at once.
+- **Archive and deliver with `scripts/archive_verify.py`, never by hand.** The archive phase is mechanical — no reasoning required — but hand-writing each `.md` and `.json` across per-file write/read turns made it the single most expensive phase of a run (~27% of tokens). The script renders every archive file and the combined report from ONE payload, re-reads them from disk, and verifies them. A verifier that only ever passes is worthless, so `scripts/test_archive_verify.py` asserts that each corruption (bad ranks, wrong score order, missing URL, unbalanced exclusions, duplicate URL across employers, tampered `.md`) is actually caught. Run it after any change to the script.
+- **One payload is the single source of truth for both archive files.** Hand-writing the `.md` and `.json` separately let them drift (the `.md` could claim a different work model or reason than the `.json`). The script derives both from one payload, so they cannot disagree.
 
 ## Verification
 

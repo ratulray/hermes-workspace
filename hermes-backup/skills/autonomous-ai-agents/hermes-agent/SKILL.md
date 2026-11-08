@@ -651,6 +651,10 @@ the `cronjob` tool, the `hermes cron` CLI (`list`, `add`, `edit`,
   `skip_memory=True` by default, and cron deliveries are framed with a
   header/footer instead of being mirrored into the target gateway
   session (keeps role alternation intact).
+- **Observability:** reading a job's full prompt (the `list` action only
+  returns a truncated preview), detecting missed vs. late runs, and
+  attributing token cost to task phases — see
+  `references/cron-job-observability.md`.
 
 User docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/cron
 

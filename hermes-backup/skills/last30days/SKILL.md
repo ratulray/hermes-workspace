@@ -192,6 +192,24 @@ After the script exits, inspect its output carefully:
 
 ---
 
+## Autonomous Mode (scheduled jobs / no user present)
+
+When this skill is invoked by a cron job or any non-interactive context, the interactive flow below cannot complete — there is no user to describe a vision and no prompt to deliver. Stop after research and synthesis, and produce the artifact the caller asked for.
+
+**Skip these phases entirely:** the "Target Tool" question, the "What I learned" + stats + invitation display, the "WAIT FOR USER'S VISION" pause, and the final single-prompt deliverable. Asking "what tool will you use this for?" in a scheduled run stalls forever.
+
+**Do these instead:**
+1. Run the research script and the web searches exactly as in interactive mode.
+2. Synthesize the findings into prose — the same grounding rules apply (use the user's exact terminology, weight Reddit/X above web, quote what the sources actually say, never project your own knowledge onto the topic).
+3. Write the result to the file path the caller specified, in the structure the caller specified.
+4. Include the key source links in the file. A file with no citations is not a deliverable.
+
+The commonest autonomous caller asks for a research summary written to a markdown file. Write the file with frontmatter, a summary of what the research found, and links to key resources — then report the file path.
+
+**Do not write "copy-paste-ready prompts"** unless the caller explicitly asks for prompts. A scheduled research job wants understanding, not a prompt to paste into another tool.
+
+---
+
 ## Judge Agent: Synthesize All Sources
 
 **After all searches complete, internally synthesize (don't display stats yet):**

@@ -224,6 +224,14 @@ hermes send --to "telegram:Ratul Ray" "Take your time — I'll deliver feedback 
 ### Repeated sends, no replies (3+ weeks)
 If two or more consecutive sessions go out with no answer, stop assuming the questions are good and ask whether the *channel* is the problem. The next session's opening message should name the silence directly and invite him to say what is wrong with the format (length, channel, timing, question style). If silence continues after that, drop to one question per week and shorter messages.
 
+**Verify the channel before blaming the format.** Before concluding "he's not replying because of length," confirm the messages are actually reaching him:
+- `hermes send --list telegram` — target resolves?
+- `sqlite3 ~/.hermes/state.db "select datetime(timestamp,'unixepoch','localtime'), role, substr(content,1,200) from messages where session_id='<id>' order by timestamp desc limit 20;"` — what is the last inbound message, and when?
+- `grep Telegram ~/.hermes/logs/gateway.log | tail` — transport healthy?
+If the last inbound message is months old and the transport is fine, the channel works and the *instrument* (Telegram prompt at 9pm Friday) is what's failing. Say so in the question itself, and offer a concrete alternative — a phone-ready one-prompt format, or a different channel — rather than sending another polished wall of text.
+
+**Message-length discipline.** A question that takes 10 minutes to read is a question that gets skipped. Past that, keep the whole message under ~1,500 characters: name the situation, ask one concrete question, give one piece of evidence that makes it matter, offer an exit ramp.
+
 ### Check for a pending reply before sending the next question
 Ratul's Telegram replies land as inbound messages handled by the gateway (session key `agent:main:telegram:dm:7334241247`). To check for an answer before sending the next question, query the state DB:
 `sqlite3 ~/.hermes/state.db "select datetime(timestamp,'unixepoch','localtime'), role, substr(content,1,300) from messages where session_id='<telegram session id>' order by timestamp desc limit 15;"`
@@ -278,3 +286,4 @@ Use this to reconstruct what was covered in each session without re-reading full
 | 2026-10-16 | 030, 045 | Usefulness orientation + positive intent | Henry Ford test, seen vs. interrogated |
 | 2026-10-23 | 062, 044 | Coaching the pattern + standards via daily treatment | Recurring complainants; what you tolerate sets the bar |
 | 2026-10-30 | 064, 019 | Silence when silence shouldn't be possible + owning the mistake | Last 3 weeks went unanswered; Q1 names that and invites format feedback |
+| 2026-11-06 | 024, 027 | Dividers + multiplier vs. subtractor | 6th straight unanswered week; dropped to 1 short question, channel verified healthy |
