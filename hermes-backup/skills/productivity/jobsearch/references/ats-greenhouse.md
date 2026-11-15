@@ -33,6 +33,8 @@ curl -s --max-time 20 'https://boards-api.greenhouse.io/v1/boards/gleanwork/jobs
 
 **If API times out or returns empty:** fall back to browser-based console extraction (see below).
 
+**The description body lives under `content`.** Ashby uses `descriptionHtml` / `descriptionPlain` instead — reading the wrong key gives a zero-length body for every posting, which makes body-based filters reject every candidate and the run report "no eligible roles" for an employer that plainly has them. Probe with `jq 'keys'` on one record and assert a non-zero body length before trusting a filter result.
+
 ### Browser console extraction (when API fails)
 
 Navigate to the company's careers listing page (e.g. `https://www.glean.com/careers`), then run in `browser_console`:

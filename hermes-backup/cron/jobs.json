@@ -20,15 +20,15 @@
       "schedule_display": "0 9 * * 1",
       "repeat": {
         "times": 1440,
-        "completed": 37
+        "completed": 38
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:15:01.908653-07:00",
-      "next_run_at": "2026-11-09T09:00:00-08:00",
-      "last_run_at": "2026-11-02T09:01:42.318316-08:00",
+      "next_run_at": "2026-11-16T09:00:00-08:00",
+      "last_run_at": "2026-11-09T09:03:23.441588-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -37,13 +37,16 @@
       "enabled_toolsets": null,
       "workdir": "/Users/ratul/Documents/agent-roadmap",
       "last_dispatch": {
-        "scheduled_at": "2026-11-02T09:00:00-08:00",
-        "dispatched_at": "2026-11-02T09:00:42.429288-08:00",
-        "lateness_seconds": 42.4,
+        "scheduled_at": "2026-11-09T09:00:00-08:00",
+        "dispatched_at": "2026-11-09T09:00:54.003054-08:00",
+        "lateness_seconds": 54.0,
         "kind": "on_time"
       },
       "fire_claim": null,
-      "failure_streak": 0
+      "failure_streak": 0,
+      "canonical_completions": [
+        "a874499e889b45a7bbbef6115a12f0d9"
+      ]
     },
     {
       "id": "54c9ff20ac59",
@@ -65,15 +68,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": 1440,
-        "completed": 30
+        "completed": 31
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:27:33.347508-07:00",
-      "next_run_at": "2026-11-13T21:00:00-08:00",
-      "last_run_at": "2026-11-06T21:03:23.999889-08:00",
+      "next_run_at": "2026-11-20T21:00:00-08:00",
+      "last_run_at": "2026-11-13T21:02:41.037287-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -87,15 +90,15 @@
       ],
       "workdir": "/Users/ratul",
       "last_dispatch": {
-        "scheduled_at": "2026-11-06T21:00:00-08:00",
-        "dispatched_at": "2026-11-06T21:00:52.519106-08:00",
-        "lateness_seconds": 52.5,
+        "scheduled_at": "2026-11-13T21:00:00-08:00",
+        "dispatched_at": "2026-11-13T21:00:39.562119-08:00",
+        "lateness_seconds": 39.6,
         "kind": "on_time"
       },
       "fire_claim": null,
       "failure_streak": 0,
       "canonical_completions": [
-        "f69baf57d380448fbae4631c4453a482"
+        "5a7569439df94f1ca21b458b6a74135f"
       ]
     },
     {
@@ -120,15 +123,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": null,
-        "completed": 16
+        "completed": 17
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-29T20:58:41.339254-07:00",
-      "next_run_at": "2026-11-13T21:00:00-08:00",
-      "last_run_at": "2026-11-06T21:05:56.245376-08:00",
+      "next_run_at": "2026-11-20T21:00:00-08:00",
+      "last_run_at": "2026-11-13T21:05:43.328321-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -138,15 +141,15 @@
       "workdir": null,
       "profile": null,
       "last_dispatch": {
-        "scheduled_at": "2026-11-06T21:00:00-08:00",
-        "dispatched_at": "2026-11-06T21:00:52.519106-08:00",
-        "lateness_seconds": 52.5,
+        "scheduled_at": "2026-11-13T21:00:00-08:00",
+        "dispatched_at": "2026-11-13T21:00:39.562119-08:00",
+        "lateness_seconds": 39.6,
         "kind": "on_time"
       },
       "fire_claim": null,
       "failure_streak": 0,
       "canonical_completions": [
-        "31a7b20a283c4b38938282ede95aace3"
+        "506bbf2b323b4d1bb4787893ab6be15b"
       ]
     },
     {
@@ -169,15 +172,15 @@
       "schedule_display": "0 8 * * 0",
       "repeat": {
         "times": null,
-        "completed": 11
+        "completed": 12
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-17T22:36:55.389330-07:00",
-      "next_run_at": "2026-11-15T08:00:00-08:00",
-      "last_run_at": "2026-11-01T08:02:07.996993-08:00",
+      "next_run_at": "2026-11-22T08:00:00-08:00",
+      "last_run_at": "2026-11-08T08:01:10.658258-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -189,17 +192,186 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-11-08T08:00:53.462932-08:00",
-        "by": "Ratuls-Mac-mini.local:81190:b495fd92e9a54865964cc1da86cd4983"
+        "at": "2026-11-15T08:00:40.357919-08:00",
+        "by": "Ratuls-Mac-mini.local:40607:5b0be82f3ba443efadb2b570c33640b3"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-08T08:00:00-08:00",
-        "dispatched_at": "2026-11-08T08:00:53.426212-08:00",
-        "lateness_seconds": 53.4,
+        "scheduled_at": "2026-11-15T08:00:00-08:00",
+        "dispatched_at": "2026-11-15T08:00:40.318317-08:00",
+        "lateness_seconds": 40.3,
         "kind": "on_time"
-      }
+      },
+      "canonical_completions": [
+        "3f86470dc67648df8b99048b526332f7"
+      ]
+    },
+    {
+      "id": "b72ae4006bc3",
+      "name": "Monthly Job Corpus Crawl",
+      "prompt": "You build the monthly job-description corpus for the AI-leadership skill analysis.\n\nSETUP\n- Load the skill: skill_view(name=\"jobsearch\"), then read its reference file references/monthly-corpus.md and follow it exactly. That file is the authoritative procedure.\n- Data dir: /Users/ratul/Documents/jobsearch\n- Output JDs go to: /Users/ratul/Documents/jobsearch/results/<YYYY-MM>/jds/\n- Where <YYYY-MM> is the CURRENT month (derive from the current date, e.g. 2026-12). Never hardcode a month.\n\nPROCEDURE (per references/monthly-corpus.md)\n1. Read /Users/ratul/Documents/jobsearch/EMPLOYERS.yaml and use the monthly_corpus.pool employers only (tech-industry employers). Settings: max_total_jds 30, max_per_employer 3.\n2. Order the pool deterministically: sort employer keys by sha1(\"<YYYY-MM>:<KEY>\"). Process in that order. Skip none silently.\n3. For each employer: find its portal, collect candidate job IDs (use a documented ATS API via curl BEFORE falling back to the browser), then open each candidate posting to read it. Entries commented out in EMPLOYERS.yaml have unverified URLs - try them; if blocked or empty, skip that employer and log why. The per-employer portal access notes are in /Users/ratul/.hermes/skills/productivity/monthly-skill-mining/references/crawl-lessons.md - read that file, it records exactly which API each employer uses and which field names the ATS returns (Ashby uses descriptionHtml, Greenhouse uses content). Do not rediscover this.\n4. Keep only AI/ML/agentic-AI LEADERSHIP roles (Engineering Manager, Senior Manager, Director, Senior Director, Head of, VP) with explicit people-management scope verified in the posting's responsibilities. Drop IC roles, non-AI roles, and duplicates (same employer, same title and team) before counting toward the caps. Do NOT apply any Bay Area filter - record work_model and location in each file instead. Exclude non-engineering tracks: TPM/program management, product marketing, solutions architecture, presales, forward-deployed engineering, customer enablement, success management, regional sales, and \"Head of <non-engineering function>\".\n5. Keep at most 3 roles per employer (highest scoring per the scoring-rubric.md reference). Stop the whole crawl at 30 JDs total.\n6. Write ONE file per kept role to results/<YYYY-MM>/jds/NN-{company-slug}-{title-slug}.md using EXACTLY the front-matter shape specified in monthly-corpus.md. The analyzer parses these by script, so the shape is strict: double-quote every string value and bullet (colons break YAML), indent bullets exactly two spaces, close the front matter with ---. A file with no responsibilities and no qualifications makes the analyzer error out.\n7. RENUMBER - MANDATORY, DO NOT SKIP. After all files are written, run:\n    /Users/ratul/Documents/jobsearch/tools/skills/.venv/bin/python /Users/ratul/Documents/jobsearch/tools/skills/renumber_jds.py --month <YYYY-MM>\n   This renumbers the NN- prefixes to a contiguous 01..N sequence and rewrites the \"row:\" front-matter field to match. It also reports duplicate source_urls. You MUST run this before writing the manifest, because the analysis job's overrides.yaml is keyed by row id and a stale row id silently excludes the WRONG file. If the script reports duplicate source_urls, delete the duplicate JD files and re-run the script. Report the final N and the duplicate count.\n8. Write /Users/ratul/Documents/jobsearch/results/<YYYY-MM>/corpus-manifest.json with: month, date, max_total_jds, max_per_employer, employer_order, and per employer {attempted, candidates_found, kept, skipped_reason}, plus total_kept. The total_kept MUST equal the number of JD files on disk after step 7.\n9. If results/<YYYY-MM>/jds/ already contains JD files from an earlier run this month, do NOT overwrite or mix runs. Write to a suffixed folder instead and say so in the report.\n\nDo NOT run the skill analysis. This job only collects.\n\nREPORT (this is what gets delivered to Telegram - keep it under ~15 lines):\n- JDs kept, out of the 30 cap, and total companies attempted\n- The final file count after renumbering, and any duplicate source_urls removed\n- Any employers skipped and the one-line reason each\n- Any shortfall from 30 and why\n- Next step: \"run the monthly skill analysis\"\n\nBe factual and brief. No preamble, no restating these instructions.",
+      "skills": [
+        "jobsearch"
+      ],
+      "skill": "jobsearch",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 2 * *",
+        "display": "0 2 2 * *"
+      },
+      "schedule_display": "0 2 2 * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-11-14T01:59:39.703627-08:00",
+      "next_run_at": "2026-12-02T02:00:00-08:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "telegram:-5179227170",
+      "origin": {
+        "platform": "local",
+        "chat_id": "20261004_170041_43519e",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "uid:501",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": "/Users/ratul/Documents/jobsearch",
+      "timezone": "America/Los_Angeles",
+      "catch_up": true
+    },
+    {
+      "id": "43ae1fd410f5",
+      "name": "Monthly Skill Mining Analysis",
+      "prompt": "You run the monthly AI-leadership skill analysis over a month's corpus of job descriptions and report the result as a short narrative.\n\nSETUP\n- Load the skill: skill_view(name=\"monthly-skill-mining\") and follow it. It documents the wrapper script and the workflow.\n- Implementation dir: /Users/ratul/Documents/jobsearch/tools/skills\n- ALWAYS invoke via the wrapper, never `python -m skillminer` directly:\n    /Users/ratul/Documents/jobsearch/tools/skills/run.sh <args>\n  The wrapper hardcodes the project's own venv. If it reports \"venv not found\", run /Users/ratul/Documents/jobsearch/tools/skills/bootstrap.sh once and retry.\n- <YYYY-MM> is the CURRENT month, derived from the current date. Never hardcode it.\n\nSCOPE LIMIT (read this first)\nThis job REPORTS. It never edits the taxonomy, the patterns module, the gold files or the outputs. Step 7 below produces findings for a human/agent to act on in a separate maintenance pass. Do not re-run the analysis after making a change, and do not try to fix anything you find - report it and stop. A previous run of this job produced four consecutive reports each flagging one more inflated skill, because the reporter kept acting on its own findings. One report per month is the intended behaviour.\n\nSTEPS\n1. Verify /Users/ratul/Documents/jobsearch/results/<YYYY-MM>/jds/ exists and has JD files. If the folder is missing or empty, stop and report: \"no corpus for <YYYY-MM> - run the corpus crawl first\". Do not fabricate a result.\n2. Run the analysis ONCE:\n    /Users/ratul/Documents/jobsearch/tools/skills/run.sh run --month <YYYY-MM>\n   This writes results/<YYYY-MM>/skills/<YYYY-MM>-skills-snapshot.html, .json, <YYYY-MM>-evidence.json and <YYYY-MM>-residue.md. The HTML is generated by the script - it will exist on disk automatically.\n3. AUTO-TIER NEW COMPANIES. The run prints a line \"WARNING unclassified companies (add to companies.yaml): ...\". For each such company, add an entry to /Users/ratul/Documents/jobsearch/tools/skills/companies.yaml using the rubric documented at the top of that file:\n     - {match: <lowercased company name, parentheses and punctuation removed>, tier: prominent|established|emerging, confidence: high|low, basis: <short reason>}\n   Use `confidence: low` for any borderline call. Use `established` for well-known but smaller companies, `prominent` for big tech / F500 / top-tier AI companies, `emerging` for small or stealth. Match the existing file's formatting exactly. If a company is already listed, do not edit it.\n4. Re-run step 2 once, ONLY if step 3 actually added a company, so the \"% Prominent\" column reflects the new companies.\n5. Score against the gold file:\n    /Users/ratul/Documents/jobsearch/tools/skills/run.sh gold --month <YYYY-MM>\n   Report precision, recall and F1. If no gold file exists for the month, say \"no gold file for <YYYY-MM>\" - that is expected for a new month and is not an error.\n6. DIFF AGAINST THE PRIOR MONTH. Read the previous month's snapshot JSON (the most recent results/<YYYY-MM>/skills/<YYYY-MM>-skills-snapshot.json that is not this month's) and compare by_bucket.*.jd_pct per canonical id. Report:\n   - RISING: canonicals whose jd_pct increased by 3 points or more\n   - FALLING: canonicals whose jd_pct decreased by 3 points or more\n   - NEW: canonicals present this month but absent last month\n   - If there is no prior month, say \"first month - no prior baseline to diff\".\n   - CRITICAL: state whether the two months are even comparable. Compare the employer pool and the collection method. If they differ, or fewer than half the companies appear in both months, say plainly that the diff is a corpus artifact and NOT a trend, and name the overlap count. A differing corpus makes every rising/falling number meaningless - say so explicitly rather than listing the deltas as if they were market movement.\n7. INFLATION AUDIT - ONE PASS, ALL SKILLS. Audit EVERY skill in the snapshot for pattern inflation, not just the one that looks worst. Work from the evidence file: for each canonical, look at the bullets listed under it and ask \"does this bullet really evidence this skill?\". A skill is inflated when some of its matched bullets are generic quality language rather than the skill itself. The recurring patterns are:\n     - a skill name containing an adjective (safety, reliability, secure, cloud) matching the adjective used as a quality booster (\"reliable software solutions\", \"safe infrastructure\", \"trust and safety\" as a business domain)\n     - bare \"partner\" matching commercial/go-to-market work (GSI, consulting partners, enterprise accounts, ISVs) instead of internal cross-org collaboration\n     - bare \"production systems\"/\"production deployment\" matching generic software engineering instead of ML/AI platform work\n     - bare \"industry experience\" in any field, not a named vertical\n     - policy/EEO/confidentiality boilerplate matching a security or culture skill\n     - process boilerplate (\"collaborative software development practices\", \"A low-ego, team-first mindset\")\n   For each inflated skill, report: the canonical id, its jd_pct, how many of its JDs have no genuine evidence, and the true figure you would estimate. Check ALL skills in one pass and list every finding - do not flag one skill this run and save the rest for next month.\n8. Check results/<YYYY-MM>/skills/<YYYY-MM>-evidence.json for duplicate JDs (same source_url). Report how many duplicate title pairs exist and whether they are genuinely distinct postings. Do not edit overrides.yaml.\n\nDELIVERABLE (this is the Telegram message - a short narrative, under ~25 lines, no preamble):\n- One line: JDs analysed, companies, bullets, and whether it hit the 30-JD cap\n- Top 5 TECHNICAL skills as \"skill - NN%\" (JD% of postings requiring it)\n- Top 5 LEADERSHIP/MANAGEMENT skills as \"skill - NN%\"\n- One line on movement vs last month (rising / fading / new) OR the explicit \"not a valid trend - corpus differs\" statement\n- One line: gold F1 score, plus whether the gold file is hand-reviewed or a regenerated snapshot\n- One line: the inflation audit result - either \"no inflated skills found\" or the list of canonicals with true-figure estimates\n- One line: path to the HTML report - /Users/ratul/Documents/jobsearch/results/<YYYY-MM>/skills/<YYYY-MM>-skills-snapshot.html\n- If any employers were skipped, one line saying so and why\n- If there are findings that need a taxonomy fix, one line saying \"taxonomy fix needed - N skills\" so the reader knows the numbers have known issues\n\nFacts only, from the files on disk. Never invent a number. If a step fails, report the failure plainly instead of guessing.",
+      "skills": [
+        "monthly-skill-mining"
+      ],
+      "skill": "monthly-skill-mining",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 4 6 * *",
+        "display": "0 4 6 * *"
+      },
+      "schedule_display": "0 4 6 * *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-11-14T01:59:58.219412-08:00",
+      "next_run_at": "2026-12-06T04:00:00-08:00",
+      "last_run_at": "2026-11-14T09:47:40.481761-08:00",
+      "last_status": "ok",
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "telegram:-5179227170",
+      "origin": {
+        "platform": "local",
+        "chat_id": "20261004_170041_43519e",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "uid:501",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": "/Users/ratul/Documents/jobsearch/tools/skills",
+      "timezone": "America/Los_Angeles",
+      "catch_up": true,
+      "fire_claim": null,
+      "canonical_completions": [
+        "9538a48f4e7b4dca978d971aca0b1758"
+      ]
+    },
+    {
+      "id": "23722d31b53b",
+      "name": "Annual Skill Trend Report",
+      "prompt": "You produce the annual skill-trend report for AI-leadership job postings: which skills are continuously in demand, which are rising, and which are fading away.\n\nSETUP\n- Load the skill: skill_view(name=\"monthly-skill-mining\").\n- The trend analysis is a deterministic script - run it, do NOT recompute the trend logic yourself:\n    python3 /Users/ratul/.hermes/skills/productivity/monthly-skill-mining/scripts/annual_trends.py --year <YEAR>\n  It prints a summary and classifies every canonical skill as one of: continuous, rising, steady, emerging, new, one-off, fading.\n- <YEAR> is the calendar year just ended. If the current month is January, <YEAR> is the previous year. Otherwise it is the current year.\n- Snapshots live at /Users/ratul/Documents/jobsearch/results/<YYYY-MM>/skills/<YYYY-MM>-skills-snapshot.json\n- Write the JSON report to /Users/ratul/Documents/jobsearch/results/<YEAR>/skills/<YEAR>-skill-trends.json using the script's --out flag, so the report is reproducible.\n\nSTEPS\n1. Run the script for <YEAR>. If it reports zero months of data, stop and report: \"no monthly snapshots for <YEAR> - nothing to analyse\". Do not fabricate a trend.\n2. Read the JSON report it produced.\n3. Check the sample size before drawing conclusions. If there are fewer than 3 months of data, say so explicitly in the report - a trend from 1-2 months is noise, not a signal.\n4. Note any month with a low JD count (under 15 JDs) as a caveat, since percentages move more on a small sample.\n5. Spot-check one or two \"fading\" and one \"rising\" skill by reading the pct_by_month series, to confirm the classification matches the underlying numbers. If a classification looks wrong, say which one and what the numbers actually show.\n\nDELIVERABLE (this is the Telegram message - a short narrative, under ~25 lines, no preamble):\n- Line 1: how many months were analysed and the JD count per month\n- CONTINUOUS DEMAND: the skills present in every month with a sustained share of postings - list up to 8, with the final-month percentage each\n- RISING: skills whose share grew materially - list up to 5, with the from -> to percentage\n- FADING: skills whose share shrank materially - list up to 5, with the from -> to percentage\n- NEW: skills that appeared only in the later months - list up to 5\n- One line of caveats: months of data, any low-sample months, anything you flagged as suspicious\n- One line: path to the JSON report\n\nFacts only, from the files on disk. Never invent a number or a skill name. If a category is empty, say \"none\". If a step fails, report the failure plainly instead of guessing.",
+      "skills": [
+        "monthly-skill-mining"
+      ],
+      "skill": "monthly-skill-mining",
+      "model": null,
+      "provider": null,
+      "base_url": null,
+      "script": null,
+      "no_agent": false,
+      "monitor_script": null,
+      "monitor_url": null,
+      "monitor_state": null,
+      "context_from": null,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 5 5 1 *",
+        "display": "0 5 5 1 *"
+      },
+      "schedule_display": "0 5 5 1 *",
+      "repeat": {
+        "times": null,
+        "completed": 0
+      },
+      "enabled": true,
+      "state": "scheduled",
+      "paused_at": null,
+      "paused_reason": null,
+      "created_at": "2026-11-14T02:04:28.249900-08:00",
+      "next_run_at": "2027-01-05T05:00:00-08:00",
+      "last_run_at": null,
+      "last_status": null,
+      "last_error": null,
+      "last_delivery_error": null,
+      "last_delivery_unverified": null,
+      "last_failure": null,
+      "failure_streak": 0,
+      "deliver": "telegram:-5179227170",
+      "origin": {
+        "platform": "local",
+        "chat_id": "20261004_170041_43519e",
+        "chat_name": null,
+        "thread_id": null,
+        "user_id": "uid:501",
+        "scope_id": null
+      },
+      "enabled_toolsets": null,
+      "workdir": null,
+      "timezone": "America/Los_Angeles",
+      "catch_up": true
     }
   ],
-  "updated_at": "2026-11-08T08:00:53.463534-08:00"
+  "updated_at": "2026-11-15T08:00:40.358205-08:00"
 }

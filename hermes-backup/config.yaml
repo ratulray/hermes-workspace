@@ -502,7 +502,7 @@ secrets:
 paste_collapse_threshold: 5
 paste_collapse_threshold_fallback: 5
 paste_collapse_char_threshold: 2000
-_config_version: 52
+_config_version: 53
 group_sessions_per_user: true
 platform_toolsets:
   cli:

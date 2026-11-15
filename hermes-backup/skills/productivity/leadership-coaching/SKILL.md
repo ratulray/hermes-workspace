@@ -160,7 +160,7 @@ The goal is **reflective discomfort** — not making him feel bad, but making hi
 - **Update BEFORE sending questions** — if the job crashes mid-send, the topic is already marked as used and won't be double-selected on retry.
 - Read this file at session start to avoid repeating topics.
 - Append the two tip IDs immediately after tip selection, before sending anything.
-- **The file lives in `/tmp` and gets wiped on reboot.** If it's missing, reconstruct it from the session files in `/Users/ratul/Documents/leadership_conversation/*.md` (grep for `winning-with-people-NNN`) before selecting tips. Don't skip the check just because the file is absent.
+- **The file lives in `/tmp` and gets wiped on reboot.** This has now happened twice (2026-11-06, 2026-11-13). On every run: if `/tmp/leadership-coaching-last-topics.txt` is missing, reconstruct it from the session files in `/Users/ratul/Documents/leadership_conversation/*.md` (grep for `winning-with-people-NNN`), rewrite it with the full history plus the current session's tips, AND mirror it to `/Users/ratul/Documents/leadership_notes/leadership-coaching-last-topics.txt` (persistent location, outside /tmp) so the next wipe is a one-file copy instead of a full reconstruction. Don't skip the check just because the file is absent.
 - Keep one line per session in the format `YYYY-MM-DD | NNN, NNN | short theme | note` so history survives future wipes.
 
 **Session history**: Consider a running log at `/Users/ratul/Documents/leadership_notes/coaching-sessions/` with one file per session (date as filename) capturing: tips selected, research notes, questions asked, and overall assessment.
@@ -287,3 +287,4 @@ Use this to reconstruct what was covered in each session without re-reading full
 | 2026-10-23 | 062, 044 | Coaching the pattern + standards via daily treatment | Recurring complainants; what you tolerate sets the bar |
 | 2026-10-30 | 064, 019 | Silence when silence shouldn't be possible + owning the mistake | Last 3 weeks went unanswered; Q1 names that and invites format feedback |
 | 2026-11-06 | 024, 027 | Dividers + multiplier vs. subtractor | 6th straight unanswered week; dropped to 1 short question, channel verified healthy |
+| 2026-11-13 | 074, 038 | Nearest people absorb the worst of your time + strategic learning (name who teaches you) | 7th straight unanswered week; kept 1 short question with an evidence block; tracking file in /tmp was wiped again and reconstructed |

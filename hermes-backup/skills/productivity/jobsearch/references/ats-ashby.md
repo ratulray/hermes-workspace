@@ -52,6 +52,7 @@ curl -s --max-time 15 'https://api.ashbyhq.com/posting-api/job-board/openai'
 - **`workplaceType` is the cheapest work-model signal.** It is one of: `OnSite`, `Hybrid`, `Remote`, or `null`. Read it from the API listing, then look for an explicit JD sentence to quote (e.g. "This role is in-person at our San Francisco office.", "We use a hybrid work model of 3 days in the office per week", "This role is based in our San Francisco HQ"). If the JD has no such sentence, report the work model as coming from the ATS `workplaceType` field and label it as such.
 - `department.name` is useful for filtering but **do not trust it for hard filters** — some EM/Director roles live in unexpected departments (e.g. Security, Infrastructure)
 - `employmentType` is usually "Full-time" for all technical roles — not a discriminator
+- **The description body lives under `descriptionHtml` / `descriptionPlain`, NOT `contentHtml`.** `contentHtml` is Greenhouse's key. Reading the wrong one yields a zero-length body for every posting, which makes any body-based filter (management scope, work model) reject every candidate — the run then reports "no eligible roles" for an employer that plainly has them. Probe the actual keys with `jq 'keys'` on one record before writing field accessors, and assert a non-zero body length on the first record before trusting a filter result.
 
 **CORS:** The API is blocked from browser JavaScript contexts (CORS). Do not attempt `fetch()` from the browser console or browser tool's JS context — it will fail. Use `curl` in terminal instead.
 

@@ -655,6 +655,9 @@ the `cronjob` tool, the `hermes cron` CLI (`list`, `add`, `edit`,
   returns a truncated preview), detecting missed vs. late runs, and
   attributing token cost to task phases — see
   `references/cron-job-observability.md`.
+- **Authoring:** how to write a self-contained cron prompt (setup, steps,
+  failure behaviour, deliverable shape) and why a multi-stage pipeline
+  should be split across separate jobs — same reference.
 
 User docs: https://hermes-agent.nousresearch.com/docs/user-guide/features/cron
 

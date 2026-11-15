@@ -1,0 +1,11 @@
+{
+  "params": {
+    "job_id": "312572cb5e5c",
+    "request_id": "deeecc9d23c44562a857a699f1a1c5b3",
+    "extra_prompt": null
+  },
+  "receipt": {
+    "session_id": "local-db5c32b53d50f15f5a02944f6ec81ff7128ea3fe26a8a29f71ef74669ccd307c",
+    "admission_id": "fcbd3ff8252948e8b554644ef99d9dea"
+  }
+}

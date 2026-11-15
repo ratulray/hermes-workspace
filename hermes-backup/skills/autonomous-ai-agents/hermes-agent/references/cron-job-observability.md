@@ -1,6 +1,19 @@
 # Cron Job Observability
 
-How to inspect scheduled jobs — their full prompts, run history, and token cost. Use when asked what a cron job does, whether runs were missed, or what a run consumed.
+How to inspect scheduled jobs — their full prompts, run history, and token cost. Use when asked what a cron job does, whether runs were missed, or what a run consumed. Also covers how to author a cron prompt.
+
+## Writing a cron prompt
+
+A cron run starts in a fresh session with no chat history, so the prompt must be self-contained: the paths, the commands, the deliverable's shape, and the failure behaviour all go in the prompt. Nothing may be left to a question the user would have answered — there is nobody present.
+
+Shape that works:
+
+1. **Setup** — which skill to load, absolute paths, the exact command to run, and how any date is derived (derive it, never hardcode it).
+2. **Steps** — numbered, each with its concrete command.
+3. **Failure behaviour** — what to report when input is missing or a step errors, without fabricating a result.
+4. **Deliverable** — the exact output shape, with a length cap.
+
+For a multi-stage pipeline, prefer separate jobs over one job that does everything: a stage whose input is missing should report "no input for this month" and wait, not run on half-written data. Give the stages a real gap in their schedules so the first can finish before the second reads its output.
 
 ## Reaching the cron tool
 
@@ -64,6 +77,9 @@ Filter the log by that session id to recover the full event stream — API calls
 
 ## Gotchas
 
+- **A day-range cron expression fires once per day in the range.** `0 2 2-5 * *` is four fires a month (2nd, 3rd, 4th, 5th), not one. For "once a month" use a single day-of-month (`0 2 2 * *`); if you want a window of days to retry, set `catch_up: true` so a missed run fires once on return instead of firing on every day in the range. Check `next_run_at` after creating the job.
+- **`catch_up: true` is what makes a missed monthly job recoverable.** It runs the job once when the machine comes back up. `catch_up: false` (the default for one-shots) skips it entirely — so a machine that was off on the 2nd of the month silently produces no report.
+- **Set `timezone` explicitly on any job with a local-time expectation.** The cron expression is otherwise read in the profile's timezone, so a job meant for "2am Pacific" drifts if the profile's timezone is different.
 - `action=update` on an existing job is preferred over creating a near-duplicate; always `list` first and copy the real `job_id` — never guess ids.
 - Renaming a job is a separate `action=update` call with just `name`.
 - A job's final response is what gets delivered. Jobs that need a specific delivery target (a group chat rather than the home channel) need an explicit `platform:chat_id` target; the Telegram group id is stored without the `-100` supergroup prefix.
