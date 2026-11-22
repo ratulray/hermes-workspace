@@ -30,6 +30,17 @@ Some employers use a proprietary custom web component for their job board instea
 
 **What works:** Direct `curl` + regex extraction from static HTML.
 
+**SmartRecruiters API (confirmed 2026-11-20):** the careers page embeds an `applyUrl`
+pointing at `smartrecruiters.com/ServiceNow/<sr_id>-<slug>?oga=true`, which exposes a
+clean per-posting JSON API:
+`https://api.smartrecruiters.com/v1/companies/ServiceNow/postings/<sr_id>`
+It returns `location.remote`, `location.hybrid`, `city`, `region` and the full
+`jobDescription` text. Use it to confirm work model per role instead of relying on the
+page-level ServiceNow "Work Personas" boilerplate, which is org-level and not
+role-authoritative. The list endpoint
+`/v1/companies/ServiceNow/postings?limit=100&offset=0` also works but is not
+Moveworks-filtered — filter client-side on title/location.
+
 **Job card structure (confirmed 2026-08-21):**
 ```html
 <div class="... cmp-job-listings__job"

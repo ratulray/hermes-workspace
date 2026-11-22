@@ -20,15 +20,15 @@
       "schedule_display": "0 9 * * 1",
       "repeat": {
         "times": 1440,
-        "completed": 38
+        "completed": 39
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:15:01.908653-07:00",
-      "next_run_at": "2026-11-16T09:00:00-08:00",
-      "last_run_at": "2026-11-09T09:03:23.441588-08:00",
+      "next_run_at": "2026-11-23T09:00:00-08:00",
+      "last_run_at": "2026-11-16T09:03:26.435688-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -37,15 +37,15 @@
       "enabled_toolsets": null,
       "workdir": "/Users/ratul/Documents/agent-roadmap",
       "last_dispatch": {
-        "scheduled_at": "2026-11-09T09:00:00-08:00",
-        "dispatched_at": "2026-11-09T09:00:54.003054-08:00",
-        "lateness_seconds": 54.0,
+        "scheduled_at": "2026-11-16T09:00:00-08:00",
+        "dispatched_at": "2026-11-16T09:00:40.930465-08:00",
+        "lateness_seconds": 40.9,
         "kind": "on_time"
       },
       "fire_claim": null,
       "failure_streak": 0,
       "canonical_completions": [
-        "a874499e889b45a7bbbef6115a12f0d9"
+        "83f7d4900a15435ebc0af18f9e55190b"
       ]
     },
     {
@@ -68,15 +68,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": 1440,
-        "completed": 31
+        "completed": 32
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-05-21T23:27:33.347508-07:00",
-      "next_run_at": "2026-11-20T21:00:00-08:00",
-      "last_run_at": "2026-11-13T21:02:41.037287-08:00",
+      "next_run_at": "2026-11-27T21:00:00-08:00",
+      "last_run_at": "2026-11-20T21:17:34.964459-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -90,15 +90,15 @@
       ],
       "workdir": "/Users/ratul",
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T21:00:00-08:00",
-        "dispatched_at": "2026-11-13T21:00:39.562119-08:00",
-        "lateness_seconds": 39.6,
+        "scheduled_at": "2026-11-20T21:00:00-08:00",
+        "dispatched_at": "2026-11-20T21:00:07.374730-08:00",
+        "lateness_seconds": 7.4,
         "kind": "on_time"
       },
       "fire_claim": null,
       "failure_streak": 0,
       "canonical_completions": [
-        "5a7569439df94f1ca21b458b6a74135f"
+        "ee39992f510247dfae6f796ef5b129c7"
       ]
     },
     {
@@ -123,15 +123,15 @@
       "schedule_display": "0 21 * * 5",
       "repeat": {
         "times": null,
-        "completed": 17
+        "completed": 18
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-07-29T20:58:41.339254-07:00",
-      "next_run_at": "2026-11-20T21:00:00-08:00",
-      "last_run_at": "2026-11-13T21:05:43.328321-08:00",
+      "next_run_at": "2026-11-27T21:00:00-08:00",
+      "last_run_at": "2026-11-20T21:06:07.764382-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -141,15 +141,15 @@
       "workdir": null,
       "profile": null,
       "last_dispatch": {
-        "scheduled_at": "2026-11-13T21:00:00-08:00",
-        "dispatched_at": "2026-11-13T21:00:39.562119-08:00",
-        "lateness_seconds": 39.6,
+        "scheduled_at": "2026-11-20T21:00:00-08:00",
+        "dispatched_at": "2026-11-20T21:00:07.374730-08:00",
+        "lateness_seconds": 7.4,
         "kind": "on_time"
       },
       "fire_claim": null,
       "failure_streak": 0,
       "canonical_completions": [
-        "506bbf2b323b4d1bb4787893ab6be15b"
+        "b344b25fa65048f5868420742e7e0e9a"
       ]
     },
     {
@@ -172,15 +172,15 @@
       "schedule_display": "0 8 * * 0",
       "repeat": {
         "times": null,
-        "completed": 12
+        "completed": 13
       },
       "enabled": true,
       "state": "scheduled",
       "paused_at": null,
       "paused_reason": null,
       "created_at": "2026-08-17T22:36:55.389330-07:00",
-      "next_run_at": "2026-11-22T08:00:00-08:00",
-      "last_run_at": "2026-11-08T08:01:10.658258-08:00",
+      "next_run_at": "2026-11-29T08:00:00-08:00",
+      "last_run_at": "2026-11-15T08:01:23.585017-08:00",
       "last_status": "ok",
       "last_error": null,
       "last_delivery_error": null,
@@ -192,18 +192,18 @@
       "workdir": null,
       "profile": null,
       "fire_claim": {
-        "at": "2026-11-15T08:00:40.357919-08:00",
-        "by": "Ratuls-Mac-mini.local:40607:5b0be82f3ba443efadb2b570c33640b3"
+        "at": "2026-11-22T08:00:08.189900-08:00",
+        "by": "Ratuls-Mac-mini.local:60013:8cd143e3988d4a10bb9eeb23fa7a7882"
       },
       "failure_streak": 0,
       "last_dispatch": {
-        "scheduled_at": "2026-11-15T08:00:00-08:00",
-        "dispatched_at": "2026-11-15T08:00:40.318317-08:00",
-        "lateness_seconds": 40.3,
+        "scheduled_at": "2026-11-22T08:00:00-08:00",
+        "dispatched_at": "2026-11-22T08:00:08.148216-08:00",
+        "lateness_seconds": 8.1,
         "kind": "on_time"
       },
       "canonical_completions": [
-        "3f86470dc67648df8b99048b526332f7"
+        "deeecc9d23c44562a857a699f1a1c5b3"
       ]
     },
     {
@@ -373,5 +373,5 @@
       "catch_up": true
     }
   ],
-  "updated_at": "2026-11-15T08:00:40.358205-08:00"
+  "updated_at": "2026-11-22T08:00:08.190177-08:00"
 }
